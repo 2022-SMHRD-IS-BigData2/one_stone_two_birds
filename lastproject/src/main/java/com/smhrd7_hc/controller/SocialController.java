@@ -13,8 +13,8 @@ import com.smhrd7_hc.repository.MemberRepository;
 import com.smhrd7_hc.service.MemberService;
 
 @Controller
-@RequestMapping(value = "/kakao/*")
-public class KaKaoController {
+@RequestMapping(value = "/social/*")
+public class SocialController {
 
 
 	@Autowired
@@ -101,6 +101,12 @@ public class KaKaoController {
 	@RequestMapping(value = "/logout")
 	public String kakaoLogout() {
 		return "login";
+	}
+
+	
+	@RequestMapping("/callback")
+	public String callback() {
+		return "callback";
 	}
 
 }

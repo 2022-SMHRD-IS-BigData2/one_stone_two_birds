@@ -43,7 +43,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "WbaAQBDo9LlefnPLWxvr",
-				callbackUrl: "http://localhost:8088/naver/callback",
+				callbackUrl: "http://localhost:8088/social/callback",
 				isPopup: false,
 				callbackHandle: true
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
@@ -83,7 +83,7 @@
                     	success:function(resp){
 	                   		 if(resp != "true"){ // 회원이 없는 경우
 	                			 
-	                			 post_to_url('/kakao/login',params,'post')
+	                			 post_to_url('/social/login',params,'post')
 	                		 }else{
 	            
 	                			 post_to_url('/loginProc',params,'post') // 로그인처리
