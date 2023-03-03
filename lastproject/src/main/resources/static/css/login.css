@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  :root {
+    --padding: 60px;
+  }
+  .box {
+    position: relative;
+    margin: 100px auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--padding);
+    background-color: white;
+    border-radius: 7px;
+  }
+  
+  .box input,
+  .box button {
+    padding: 15px;
+    font-size: 1.2em;
+  }
+  .box input {
+    margin-bottom: 25px;
+  }
+  .button {
+    background-color: #EEE;
+    color: black;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .img_logo {
+    height: 60px;
+    display:block; margin:auto;
+}
+p1{
+  text-align: center;
+  line-height: 50px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 75px;
+  padding: 1rem;
+  color: black;
+  background: lightblue;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+  

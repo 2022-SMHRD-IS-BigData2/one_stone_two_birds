@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login.css" >
+    <script class="box" type="text/javascript" defer=""></script>
+    
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a href="./example.html"><img src="img/logo.png" class="img_logo" /></a></div>
+            
+    </header>
+    <div class="box">
+        <h3>로그인</h3>
+        <p>로그인하시면 다양한 서비스를 이용할 수 있습니다</p> <br>
+        <input type="id" placeholder="ID" name="username" />
+        <input type="password" placeholder="Password" name="password" />
+        <button><a href="@{/login}">로그인</a></button> <br>
+        <button><a href="/signUp">회원가입</a></button>  <br>
+
+        <p1>----------------------소셜로그인----------------------</p1> <br>
+        <div id="naverIdLogin" class="img_logo"></div>
+        <a href="javascript:kakaoLogin();"><img src="./img/카카오.png" class="img_logo" /></a>
+      
+      </div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script src="./js/post.js"></script>
+	<script src="./js/kakao.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+	<script src="./js/naver.js"></script>
+</body>
+
+</html>

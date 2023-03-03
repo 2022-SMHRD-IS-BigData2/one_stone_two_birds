@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Spring Security Example</title>
+</head>
+<body>
+	<h1>Welcome!</h1>
+	<p>
+		Click <a th:href="@{/hello}">here</a> to see a greeting.
+	</p>
+	<input type="text" id="kakaomap"/>
+	<button onclick="kakaoMapSearch()">검색</button>
+	
+	<div id="map" style="width:500px;height:400px;"></div>
+	
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cdcd53cff82aeec615bc251258c0690d&libraries=services,clusterer,drawing"></script>
+	<script type="text/javascript" src="./js/kakaomap.js"></script>
+</body>
+</html>
