@@ -24,7 +24,7 @@ function kakaoLogin() {
                     		
                     		 if(resp != "true"){ // 회원이 없는 경우
                     			 
-                    			 post_to_url('/kakao/login',params,'post')
+                    			 post_to_url('/social/login',params,'post')
                     		 }else{
                 
                     			 post_to_url('/loginProc',params,'post') // 로그인처리

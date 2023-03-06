@@ -90,7 +90,7 @@ public class SocialController {
 
 			model.addAttribute("userInfo", userInfo);
 
-			nextPage = "signUp";
+			nextPage = "join";
 		}
 
 		// 계정이 없을 경우 회원가입, 있을경우 로그인 하며 메인화면(지금은 login페이지로)
