@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/join.css" >
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a href="home.html"><img src="img/logo.png" class="img_logo" /></a></div>
+            <nav>
+                <ul>
+                    <li><a href="./login.html"><span>로그인</span></a></li>
+                </ul>
+            </nav>
+    </header>
+
+
+    <!--  -->
+    <form th:action="@{/join}" method="post" class="container"> <br>
+        
+        <!-- 이용약관 -->
+        <p>    
+            약관 동의
+        </p>
+
+        <!-- terms and conditions -->
+        <div class="TandC">
+
+            <!-- 전체 동의 -->
+            <div style="border-bottom: 1px solid gray;">
+                <span>전체 동의</span>
+                <input type="checkbox" name="" id="">
+            </div>
+            
+            <!-- 필수 1 -->
+            <div>
+                <span><strong>(필수)</strong> 개인회원 약관에 동의 <button>상세 보기</button></span>
+                <input type="checkbox" name="" id="">
+            </div>
+            
+            <!-- 필수 2 -->
+            <div>
+                <span><strong>(필수)</strong> 개인정보 수집 및 이용에 동의 <button>상세 보기</button></span>
+                <input type="checkbox" name="" id="">
+            </div>
+
+            <!-- 선택 1 -->
+            <div>
+                <span>(선택) 마케팅 정보 수신 동의 - 이메일 <button>상세 보기</button></span>
+                <input type="checkbox" name="" id="">
+            </div>
+            
+            <!-- 선택 2 -->
+            <div>
+                <span>(선택) 마케팅 정보 수신 동의 - SMS/MMS <button>상세 보기</button></span>
+                <input type="checkbox" name="" id="">
+            </div>
+
+        </div> 
+
+        <p>
+            <!-- 회원 정보 -->
+            회원정보를 입력해주세요
+        </p>
+        
+        <!-- Collection of personal(member) information? -->
+        <!-- 회원 정보 -->
+        <div class="MemberInfo_box">
+            
+            
+
+            <!-- 이메일 -->
+            <div>
+                <input type="text" placeholder="이메일">
+                <p>이메일</p>
+            </div>
+             
+            <!-- 비밀번호 -->
+            <div >
+                <input type="password" placeholder="비밀번호">
+                <p>비밀번호 메세지</p>
+             
+    
+            </div>
+
+            <!-- 비밀번호 확인 -->
+            <div>
+                <input type="password" placeholder="비밀번호 확인">
+                <p>비밀번호 확인 메세지</p>
+                <i class="fa-solid fa-eye"></i>
+        
+            </div>
+
+            <!-- 닉네임 -->
+            <div >
+                <input type="text" placeholder="닉네임">
+                <p>닉네임 메세지</p>
+            </div>
+
+            <!-- 전화번호 -->
+            <div>
+                <input type="text" placeholder="전화번호">
+                <p>전화번호</p>
+            </div>
+
+            <!-- 성별 -->
+            <select id="select">
+                <option>성별</option>
+            <option value='0'>남자</option>
+            <option value='1'>여자</option>
+           
+                </select>
+
+            <!-- 거주지 -->
+            <select id="select">
+                <option>거주지</option>
+            <option value='1'>서울</option>
+            <option value='2'>부산</option>
+            <option value='3'>대구</option>
+            <option value='4'>인천</option>
+            <option value='5'>광주</option>
+            <option value='6'>대전</option>
+            <option value='7'>울산</option>
+            <option value='8'>강원</option>
+            <option value='9'>경기</option>
+            <option value='10'>경남</option>
+            <option value='11'>경북</option>
+            <option value='12'>전남</option>
+            <option value='13'>전북</option>
+            <option value='14'>제주</option>
+            <option value='15'>충남</option>
+            <option value='16'>충북</option>
+                </select>
+            <div>
+                <!-- 회원가입 -->
+                <input type="button" value="회원가입">
+            </div>
+
+        </div>
+
+    </form>
+   
+</body>
+</html>

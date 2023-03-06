@@ -1,0 +1,176 @@
+body{
+
+    display: flex;
+    flex-direction: column;
+    
+    /* justify-content: center;
+    align-items: center; */
+
+    padding: 0;
+    margin: 0;
+    /* background-color: blue; */
+}
+
+/* 헤더 박스 (로고, 로그인) */
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+  
+    height: 75px;
+    padding: 1rem;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .img_logo {
+    height: 60px;
+    display:block; margin:auto;
+}
+li:not(:last-child){
+    margin-right: 50px;
+}
+
+li a{
+    display: flex;
+    flex-direction: column;
+    color :#111;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+
+
+/*  로그인 전체 박스 중앙정렬 */
+.container{
+    /* background-color: aqua; */
+    min-height: 600px;
+    height: 100%;
+    /* width: 400px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 24px;
+    margin-bottom: 48px;
+    /* background-color: aquamarine; */
+}
+
+/* 약관동의, 회원정보를 입력해주세요 글씨 */
+.container > p{
+
+    font-size: x-large;
+}
+
+/* <!-- terms and conditions --> */
+.TandC{
+
+    border: 1px solid gray;
+    padding:16px;
+
+}
+
+/* 약관 동의서들  */
+.TandC > div{
+
+    padding:4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 약관 간단 설명에서 (필수)  */
+.TandC strong{
+
+    color:red;
+    
+}
+
+/* 약관 상세보기 버튼  */
+.TandC button{
+
+    background-color: transparent;
+    border: transparent;
+    text-decoration : underline;
+}
+
+/* 약관 상세보기 버튼 hover */
+.TandC button:hover{
+    cursor: pointer;
+}
+
+/* 회원 정보 박스 */
+.MemberInfo_box{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+/* 입력창 */
+.MemberInfo_box input {
+    width: 100%;
+    height: 60px;
+    font-size: large;
+    padding:8px;
+    box-sizing : border-box;
+}
+
+/* 회원정보 각 요소 박스(입력창+텍스트) */
+.MemberInfo_box > div{
+
+    margin-top:8px;
+    margin-bottom:8px;
+
+}
+
+/* 회원정보 글씨 */
+.MemberInfo_box p{
+    margin:0;
+    padding:0;
+    display: none;
+}
+
+#select{
+    margin-top:8px;
+    margin-bottom:8px;
+    width: 100%;
+    height: 60px;
+    font-size: large;
+    padding:8px;
+    box-sizing : border-box;
+}
+
+
+
+/* 비밀번호 보이는거 */
+div.main{
+    position: relative;
+    padding: 20px;
+    margin-top:8px;
+    margin-bottom:8px;
+    width: 100%;
+    height: 60px;
+    font-size: large;
+    padding:8px;
+    box-sizing : border-box;
+}
+
+div.main input{
+    width: 300px;
+    height: 30px;
+    background-color: black;
+    border: 0;
+    color: white;
+    text-indent: 10px;
+}
+div.main i{
+    position: absolute;
+    left: 75%;
+    top: 27px;
+    color: orange;
+}

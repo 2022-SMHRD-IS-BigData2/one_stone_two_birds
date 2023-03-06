@@ -25,14 +25,14 @@ public class LoginController {
 		return "login";
 	}
 
-	@GetMapping("/signUp")
-	public String signUp(Model model) {
+	@GetMapping("/join")
+	public String join(Model model) {
 		model.addAttribute("Member", new Member());
-		return "signUp";
+		return "join";
 	}
 
-	@PostMapping("/signUp")
-	public String signUp(@ModelAttribute("Member") Member member) {
+	@PostMapping("/join")
+	public String join(@ModelAttribute("Member") Member member) {
 		memberService.insert(member);
 		return "redirect:/login";
 	}
