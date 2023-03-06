@@ -38,3 +38,14 @@ function allcheck(){
 		$('#allCheck').prop('checked',false)
 	}
 }
+
+$('input[name=pwdResult]').on('keyup',function(){
+	var pwd = $('input[name=pwd]').val()
+	var pwdResult = $('input[name=pwdResult]').val()
+	if(pwd === pwdResult){
+		console.log(true)
+	}else{
+		console.log(false)
+	}
+})
+

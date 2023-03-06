@@ -62,7 +62,10 @@ public class SocialController {
 	@RequestMapping(value = "/login", method = { RequestMethod.POST })
 	public String kakaoLogin(@RequestParam(value = "username", required = false) String id,
 			@RequestParam(value = "password", required = false) String password,
-			@RequestParam(value = "nickname", required = false) String nickname, Model model) throws Exception {
+			@RequestParam(value = "nickname", required = false) String nickname,
+			@RequestParam(value = "gender", required = false) String gender,
+			@RequestParam(value = "birthday", required = false) String birthday,
+			Model model) throws Exception {
 
 		Member member = memberRepository.findOneById(id);
 		String nextPage = "";
@@ -85,8 +88,11 @@ public class SocialController {
 			userInfo.setId(id);
 			userInfo.setPwd(password);
 			userInfo.setNickname(nickname);
-
-			System.out.println(password);
+			userInfo.setGender(gender);
+			userInfo.setBirthday(birthday);
+			
+			System.out.println(gender);
+			System.out.println(birthday);
 
 			model.addAttribute("userInfo", userInfo);
 

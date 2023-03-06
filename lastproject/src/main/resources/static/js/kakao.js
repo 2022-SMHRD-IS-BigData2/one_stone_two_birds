@@ -9,11 +9,15 @@ function kakaoLogin() {
                 url: '/v2/user/me',
                 success: (res) => { // 카카오 서버에서 사용자 정보 받아오기
                     kakao_account = res.kakao_account;
+					console.log(kakao_account.birthday)
+					console.log(kakao_account.gender)
                     
                     var params = {
                     	'username' : kakao_account.email,
                     	'password' : res.id,
-                    	"nickname":''+kakao_account.profile.nickname
+                    	"nickname":kakao_account.profile.nickname,
+						'gender':kakao_account.gender,
+						'birthday':kakao_account.birthday
                     }
                     
                     $.ajax({ // 받아온 데이터로 비동기 통신
@@ -24,7 +28,7 @@ function kakaoLogin() {
                     		
                     		 if(resp != "true"){ // 회원이 없는 경우
                     			 
-                    			 post_to_url('/social/login',params,'post')
+                    			post_to_url('/social/login',params,'post')
                     		 }else{
                 
                     			 post_to_url('/loginProc',params,'post') // 로그인처리
