@@ -135,7 +135,7 @@ li a{
     display: none;
 }
 
-#select{
+.select{
     margin-top:8px;
     margin-bottom:8px;
     width: 100%;

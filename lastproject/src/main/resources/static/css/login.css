@@ -49,11 +49,15 @@ header {
   height: 75px;
   padding: 1rem;
   color: black;
-  background: lightblue;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
   
-  
+ .login{
+ 	width:275px;
+ }
+ .loginform{
+ 	margin: 0 0 0 52px;
+ }

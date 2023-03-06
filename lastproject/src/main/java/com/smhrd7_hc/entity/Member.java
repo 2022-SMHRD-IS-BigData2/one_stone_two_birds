@@ -38,8 +38,8 @@ public class Member {
 	@Column( length = 40 )
 	private String nickname;
 	
-	@Column()
-	private Date birthday;
+	@Column( length = 60 )
+	private String birthday;
 	
 	@Column( length = 10, columnDefinition = "enum('male', 'female')")
 	private String gender;
@@ -52,16 +52,19 @@ public class Member {
 	private Set<Role> roles;
 	
 	@Builder
-	public Member(String id, String pwd, String nickname, Set<Role> roles) {
+	public Member(String id, String pwd, String nickname, String birthday, String gender, String livingArea, Set<Role> roles) {
 		this.id = id;
 		this.pwd = pwd;
 		this.nickname = nickname;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.livingArea = livingArea;
 		this.roles = roles;
 	}
 	
 	
 	public Member toEntity(Set<Role> roles) {
-		return Member.builder().id(id).pwd(pwd).nickname(nickname).roles(roles).build();
+		return Member.builder().id(id).pwd(pwd).nickname(nickname).birthday(birthday).gender(gender).livingArea(livingArea).roles(roles).build();
 	}
 	
 }

@@ -37,31 +37,31 @@
             <!-- 전체 동의 -->
             <div style="border-bottom: 1px solid gray;">
                 <span>전체 동의</span>
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="che" id="allCheck">
             </div>
             
             <!-- 필수 1 -->
             <div>
                 <span><strong>(필수)</strong> 개인회원 약관에 동의 <button>상세 보기</button></span>
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="che" class="primary agree">
             </div>
             
             <!-- 필수 2 -->
             <div>
                 <span><strong>(필수)</strong> 개인정보 수집 및 이용에 동의 <button>상세 보기</button></span>
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="che" class="primary agree">
             </div>
 
             <!-- 선택 1 -->
             <div>
                 <span>(선택) 마케팅 정보 수신 동의 - 이메일 <button>상세 보기</button></span>
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="che" class="option agree">
             </div>
             
             <!-- 선택 2 -->
             <div>
                 <span>(선택) 마케팅 정보 수신 동의 - SMS/MMS <button>상세 보기</button></span>
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" id='Test' name="che" class="option agree">
             </div>
 
         </div> 
@@ -79,13 +79,13 @@
 
             <!-- 이메일 -->
             <div>
-                <input type="text" placeholder="이메일">
+                <input type="text" placeholder="이메일" name="id">
                 <p>이메일</p>
             </div>
              
             <!-- 비밀번호 -->
             <div >
-                <input type="password" placeholder="비밀번호">
+                <input type="password" placeholder="비밀번호" name="pwd">
                 <p>비밀번호 메세지</p>
              
     
@@ -101,26 +101,26 @@
 
             <!-- 닉네임 -->
             <div >
-                <input type="text" placeholder="닉네임">
+                <input type="text" placeholder="닉네임" name="nickname">
                 <p>닉네임 메세지</p>
             </div>
 
             <!-- 전화번호 -->
             <div>
-                <input type="text" placeholder="전화번호">
+                <input type="date" placeholder="생년월일" name="birthday">
                 <p>전화번호</p>
             </div>
 
             <!-- 성별 -->
-            <select id="select">
+            <select class="select" name="gender">
                 <option>성별</option>
-            <option value='0'>남자</option>
-            <option value='1'>여자</option>
+            <option value='male'>남자</option>
+            <option value='female'>여자</option>
            
                 </select>
 
             <!-- 거주지 -->
-            <select id="select">
+            <select class="select" name="livingArea">
                 <option>거주지</option>
             <option value='1'>서울</option>
             <option value='2'>부산</option>
@@ -141,13 +141,15 @@
                 </select>
             <div>
                 <!-- 회원가입 -->
-                <input type="button" value="회원가입">
+                <input type="submit" value="회원가입">
             </div>
 
         </div>
 
     </form>
    
-   <script type="text/javascript" src="/js/join.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+   <script src="/js/post.js"></script>
+   <script src="/js/join.js"></script>
 </body>
 </html>

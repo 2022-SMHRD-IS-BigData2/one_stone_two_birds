@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,10 +19,12 @@
     <div class="box">
         <h3>로그인</h3>
         <p>로그인하시면 다양한 서비스를 이용할 수 있습니다</p> <br>
-        <input type="id" placeholder="ID" name="username" />
-        <input type="password" placeholder="Password" name="password" />
-        <button><a href="@{/login}">로그인</a></button> <br>
-        <button><a href="/join">회원가입</a></button>  <br>
+        <form th:action="@{/loginProc}" method="post" class="loginform" >
+	        <input type="text" placeholder="ID" name="username"/>
+	        <input type="password" placeholder="Password" name="password"/> <br>
+        	<input type="submit" value="로그인" class="login"/> <br>
+        </form>
+        <a href="/join" class="loginform" ><button class="login">회원가입</button></a>  <br>
 
         <p1>----------------------소셜로그인----------------------</p1> <br>
         <div id="naverIdLogin" class="img_logo"></div>
@@ -30,10 +33,10 @@
       </div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	<script src="./js/post.js"></script>
-	<script src="./js/kakao.js"></script>
+	<script src="/js/post.js"></script>
+	<script src="/js/kakao.js"></script>
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-	<script src="./js/naver.js"></script>
+	<script src="/js/naver.js"></script>
 </body>
 
 </html>
