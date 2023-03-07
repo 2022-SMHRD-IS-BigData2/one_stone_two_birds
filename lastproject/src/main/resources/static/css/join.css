@@ -151,7 +151,7 @@ li a span {
     display: none;
 }
 
-#select{
+.select{
     margin-top:8px;
     margin-bottom:8px;
     width: 100%;
@@ -229,7 +229,7 @@ div.main i{
     position: absolute;
     background-color: #fff;
     width: 400px;
-    height: 200px;
+    height:auto;
     padding: 15px;
   }
 

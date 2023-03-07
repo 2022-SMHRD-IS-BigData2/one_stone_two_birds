@@ -49,18 +49,49 @@ $('input[name=pwdResult]').on('keyup',function(){
 	}
 })
 
-const open = () => {
-  document.querySelector(".modal").classList.remove("hidden");
+const open = (number) => {
+  document.querySelectorAll(".modal")[number].classList.remove("hidden");
 }
 
-const close = () => {
-  document.querySelector(".modal").classList.add("hidden");
+const close = (number) => {
+  document.querySelectorAll(".modal")[number].classList.add("hidden");
 }
 
-document.querySelectorAll(".openBtn")[0].addEventListener("click", open);
-document.querySelectorAll(".openBtn")[1].addEventListener("click", open);
-document.querySelectorAll(".openBtn")[2].addEventListener("click", open);
-document.querySelectorAll(".openBtn")[3].addEventListener("click", open);
-document.querySelector(".closeBtn").addEventListener("click", close);
-document.querySelector(".bg").addEventListener("click", close);
+
+document.querySelectorAll(".openBtn")[0].addEventListener("click", function(){
+	open(0)
+});
+document.querySelectorAll(".openBtn")[1].addEventListener("click", function(){
+	open(1)
+});
+document.querySelectorAll(".openBtn")[2].addEventListener("click", function(){
+	open(2)
+});
+document.querySelectorAll(".openBtn")[3].addEventListener("click", function(){
+	open(3)
+});
+document.querySelectorAll(".closeBtn")[0].addEventListener("click", function(){
+	close(0)
+});
+document.querySelectorAll(".closeBtn")[1].addEventListener("click", function(){
+	close(1)
+});
+document.querySelectorAll(".closeBtn")[2].addEventListener("click", function(){
+	close(2)
+});
+document.querySelectorAll(".closeBtn")[3].addEventListener("click", function(){
+	close(3)
+});
+document.querySelectorAll(".bg")[0].addEventListener("click", function(){
+		close(0)
+});
+document.querySelectorAll(".bg")[1].addEventListener("click", function(){
+		close(1)
+});
+document.querySelectorAll(".bg")[2].addEventListener("click", function(){
+		close(2)
+});
+document.querySelectorAll(".bg")[3].addEventListener("click", function(){
+		close(3)
+});
             
