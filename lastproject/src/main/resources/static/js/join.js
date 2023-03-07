@@ -49,3 +49,18 @@ $('input[name=pwdResult]').on('keyup',function(){
 	}
 })
 
+const open = () => {
+  document.querySelector(".modal").classList.remove("hidden");
+}
+
+const close = () => {
+  document.querySelector(".modal").classList.add("hidden");
+}
+
+document.querySelectorAll(".openBtn")[0].addEventListener("click", open);
+document.querySelectorAll(".openBtn")[1].addEventListener("click", open);
+document.querySelectorAll(".openBtn")[2].addEventListener("click", open);
+document.querySelectorAll(".openBtn")[3].addEventListener("click", open);
+document.querySelector(".closeBtn").addEventListener("click", close);
+document.querySelector(".bg").addEventListener("click", close);
+            

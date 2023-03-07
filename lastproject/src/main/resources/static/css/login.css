@@ -1,60 +1,108 @@
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  :root {
+  } */
+/*   :root {
     --padding: 60px;
-  }
-  .box {
-    position: relative;
-    margin: 100px auto;
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: var(--padding);
-    background-color: white;
-    border-radius: 7px;
-  }
-  
-  .box input,
-  .box button {
-    padding: 15px;
-    font-size: 1.2em;
-  }
-  .box input {
-    margin-bottom: 25px;
-  }
-  .button {
-    background-color: #EEE;
-    color: black;
-    border-radius: 4px;
-    font-weight: bold;
-  }
-  .img_logo {
+  } */
+  a:link { color: var(--font-color); text-decoration: none;}
+  a:visited { color: var(--font-color); text-decoration: none;}
+  a:hover { color: var(--font-color); text-decoration: none;}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  position: relative;
+  margin: 100px auto;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--padding);
+  background-color: white;
+  border-radius: 7px;
+}
+
+.box input,
+.box button {
+  padding: 15px;
+  font-size: 1.2em;
+}
+
+.box input {
+  margin-bottom: 25px;
+}
+
+.button {
+  background-color: #EEE;
+  color: black;
+  border-radius: 4px;
+  font-weight: bold;
+}
+ .img_logo {
     height: 60px;
     display:block; margin:auto;
-}
-p1{
+} 
+
+.p1 {
   text-align: center;
   line-height: 50px;
 }
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
 
-  height: 75px;
-  padding: 1rem;
+#header {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+  height: 80px;
+ 
   color: black;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* background-color: aqua; */
 }
-  
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  list-style: none;
+
+}
+
+li:not(:last-child) {
+  margin-right: 50px;
+}
+
+li a {
+  display: flex;
+  flex-direction: column;
+  color: #111;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+li a span {
+  color: #5b8f8f;
+  font-size: 15px;
+}
  .login{
  	width:275px;
  }

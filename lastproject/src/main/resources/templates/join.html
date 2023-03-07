@@ -12,22 +12,28 @@
 
 </head>
 <body>
-    <header>
+    <div id="header">
+
+        <a href="home.html"> <img src="/img/logo.png" alt="" style="width: 150px"></a>
         <div class="wrap">
-            <a href="/home"><img src="/img/logo.png" class="img_logo" /></a></div>
             <nav>
+
                 <ul>
-                    <li><a href="./login.html"><span>로그인</span></a></li>
+                    <li><a href=""><span>Mypage</span>마이페이지</a></li>
+                    <li><a href="/login"><span>Login</span>로그인</a></li>
+                    <li><a href="/join"><span>Join</span>회원가입</a></li>
                 </ul>
             </nav>
-    </header>
+        </div>
+    </div>
 
 
     <!--  -->
     <form th:action="@{/join}" method="post" class="container"> <br>
         
+
         <!-- 이용약관 -->
-        <p>    
+        <p>
             약관 동의
         </p>
 
@@ -39,33 +45,58 @@
                 <span>전체 동의</span>
                 <input type="checkbox" name="che" id="allCheck">
             </div>
-            
+
             <!-- 필수 1 -->
             <div>
-                <span><strong>(필수)</strong> 개인회원 약관에 동의 <button>상세 보기</button></span>
+                <span><strong>(필수)</strong> 개인회원 약관에 동의 <button type="button" class="openBtn" >상세 보기</button> <div class="modal hidden">
+                    <div class="bg"></div>
+                    <div class="modalBox">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quam nobis quis corrupti amet maxime neque, optio, in illo, voluptatibus consequuntur! Rerum quo ea nulla qui, maxime consectetur magni soluta!</p>
+                      <button class="closeBtn">✖</button>
+                    </div>
+                  </div></span>
                 <input type="checkbox" name="che" class="primary agree">
             </div>
-            
+
             <!-- 필수 2 -->
             <div>
-                <span><strong>(필수)</strong> 개인정보 수집 및 이용에 동의 <button>상세 보기</button></span>
+                <span><strong>(필수)</strong> 개인정보 수집 및 이용에 동의 <button type="button" class="openBtn" id="button1">상세 보기</button> <div class="modal hidden">
+                    <div class="bg"></div>
+                    <div class="modalBox">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quam nobis quis corrupti amet maxime neque, optio, in illo, voluptatibus consequuntur! Rerum quo ea nulla qui, maxime consectetur magni soluta!</p>
+                      <button class="closeBtn">✖</button>
+                    </div>
+                  </div></span>
                 <input type="checkbox" name="che" class="primary agree">
             </div>
+            <!-- 모달창 -->
+         
 
             <!-- 선택 1 -->
             <div>
-                <span>(선택) 마케팅 정보 수신 동의 - 이메일 <button>상세 보기</button></span>
+                <span>(선택) 마케팅 정보 수신 동의 - 이메일 <button type="button" class="openBtn">상세 보기</button> <div class="modal hidden">
+                    <div class="bg"></div>
+                    <div class="modalBox">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quam nobis quis corrupti amet maxime neque, optio, in illo, voluptatibus consequuntur! Rerum quo ea nulla qui, maxime consectetur magni soluta!</p>
+                      <button class="closeBtn">✖</button>
+                    </div>
+                  </div></span>
                 <input type="checkbox" name="che" class="option agree">
             </div>
-            
+
             <!-- 선택 2 -->
             <div>
-                <span>(선택) 마케팅 정보 수신 동의 - SMS/MMS <button>상세 보기</button></span>
+                <span>(선택) 마케팅 정보 수신 동의 - SMS/MMS <button type="button" class="openBtn">상세 보기</button> <div class="modal hidden">
+                    <div class="bg"></div>
+                    <div class="modalBox">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quam nobis quis corrupti amet maxime neque, optio, in illo, voluptatibus consequuntur! Rerum quo ea nulla qui, maxime consectetur magni soluta!</p>
+                      <button class="closeBtn">✖</button>
+                    </div>
+                  </div></span>
                 <input type="checkbox" id='Test' name="che" class="option agree">
             </div>
 
-        </div> 
-
+        </div>
         <p>
             <!-- 회원 정보 -->
             회원정보를 입력해주세요
