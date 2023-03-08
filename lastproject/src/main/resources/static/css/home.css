@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* a태그에밑줄생기는거 방지 */
+a:link {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+
+#header {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    height: 80px;
+    /*   padding: 1rem; */
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    list-style: none;
+
+}
+
+li:not(:last-child) {
+    margin-right: 50px;
+}
+
+li a {
+    display: flex;
+    flex-direction: column;
+    color: #111;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+li a span {
+    color: #5b8f8f;
+    font-size: 15px;
+}
+
+
+/* section1 */
+.box {
+    position: static;
+    margin: 30px 450px 0 700px;
+    width: 659px;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--padding);
+    border-radius: 7px;
+}
+
+/* label  */
+.box input {
+    padding: 15px;
+    font-size: 2.4em;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.box button {
+    padding: 12px;
+    font-size: 2.1em;
+    text-align: center;
+}
+
+/*  
+.box input {
+    margin-bottom: 25px;
+    text-align: center;
+}
+ */
+/* 버튼에 hover효과 */
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+
+
+button {
+    margin: 20px;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+
+.w-btn-indigo {
+    background-color: aliceblue;
+    color: #1e6b7b;
+}
+
+
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.5);
+}
+
+
+
+/* 첨부파일 */
+
+.upload {
+    position: relative;
+    width: 100px;
+}
+
+.realupload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    filter: alpha(opacity:0.5);
+    z-index: 2;
+    width: 100px;
+}
+
+form .fakeupload {
+    background: url(images/bglines.png);
+}
+
+form .fakeupload input {
+    width: 0px;
+}
+
+/* 이미지 */
+
+.upload-btn-wrapper {
+    position:absolute;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.upload-btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#fileDragDesc {
+    margin-top: -54px;
+    width: 100%; 
+    height: 100%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding: 5px; 
+    text-align: center; 
+    line-height: 300px; 
+    vertical-align:middle;
+}
+
+/* 스크롤기능 */
+*{
+    transition-duration: 0.5s;
+}

@@ -26,10 +26,16 @@ body {
   border-radius: 7px;
 }
 
-.box input,
+.box input {
+	padding: 15px;
+	font-size: 1.2em;
+
+}
+
 .box button {
   padding: 15px;
   font-size: 1.2em;
+  text-align: center;
 }
 
 .box input {
