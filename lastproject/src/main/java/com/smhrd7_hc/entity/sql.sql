@@ -5,6 +5,7 @@ select * from member;
 select * from member_roles;
 select * from role;
 select * from login_record;
+select * from pharmacy_list;
 
 desc member;
 desc drug_search_record;
