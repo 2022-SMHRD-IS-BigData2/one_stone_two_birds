@@ -1,0 +1,154 @@
+.contents {
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+
+}
+
+.contents p {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.image {
+    margin-right: calc(50%-50vw);
+    margin-left: calc(50%-50vw);
+    margin-bottom: 10px;
+}
+
+.image img {
+    margin-top: 60px;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    overflow-x: hidden;
+}
+
+/* 본문내용 */
+
+
+#main_section>article.main_article {
+    margin-right: 12px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+#content {
+    width: 960px;
+    margin: 0 auto;
+
+    overflow: hidden;
+}
+
+#content>#main_section {
+
+    width: 750px;
+    float: left;
+}
+
+
+
+/* tab기능 */
+a {
+    text-decoration: none;
+}
+
+.et-hero-tabs {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+   position: relative; 
+    text-align: center;
+    padding: 0 2em;
+    
+    h1 {
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: 1rem;
+    }
+    h3 {
+        font-size: 1rem;
+        letter-spacing: 0.3rem;
+        opacity: 0.6;
+    }
+
+
+
+}
+
+.et-main {
+    height: calc(100vh - 130px); /* 브라우저 높이에서 탭 요소와 상위 요소의 높이(= 70px + 60px)를 뺀 값 */
+    overflow: auto;
+  }
+
+
+
+.et-hero-tabs-container {
+
+    display: flex;
+    flex-direction: row;
+ position: absolute; 
+    bottom: 0;
+    width: 58%;
+    height: 70px;
+    box-shadow: 20px 0 20px 0px rgba(0, 0, 0, 0.1);
+    background: #fff;
+
+    &--top {
+        position: fixed;
+        top: 0;
+    }
+}
+
+.et-hero-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: #000;
+    letter-spacing: 0.1rem;
+    transition: all 0.5s ease;
+    font-size: 0.8rem;
+
+    &:hover {
+        color: white;
+        background: rgba(102, 177, 241, 0.8);
+        transition: all 0.5s ease;
+    }
+}
+
+.et-hero-tab-slider {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    background: #66B1F1;
+    transition: left 0.3s ease;
+}
+
+@media (min-width: 800px) {
+
+    .et-hero-tabs,
+    .et-slide {
+        h1 {
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+    }
+
+    .et-hero-tab {
+        font-size: 1rem;
+    }
+}
