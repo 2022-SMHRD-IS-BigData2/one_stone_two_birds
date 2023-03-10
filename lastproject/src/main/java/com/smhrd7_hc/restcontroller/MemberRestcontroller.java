@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smhrd7_hc.entity.DrugList;
 import com.smhrd7_hc.entity.Member;
+import com.smhrd7_hc.repository.DrugListRepository;
 import com.smhrd7_hc.repository.MemberRepository;
 
 @RestController
@@ -15,6 +17,9 @@ public class MemberRestcontroller {
 
 	@Autowired
 	MemberRepository memberRepository;
+	
+	@Autowired
+	DrugListRepository drugListRepository;
 
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
@@ -27,6 +32,15 @@ public class MemberRestcontroller {
 		}
 
 		return result;
+	}
+	
+	@RequestMapping(value="/drugImage", method = RequestMethod.GET)
+	public DrugList drugImage(@RequestParam(value = "drugCode") String drugCode) {
+		
+		System.out.println("drugCode: "+drugCode);
+		DrugList drugImg = drugListRepository.findOneByDrugCode(drugCode);
+		
+		return drugImg;
 	}
 
 }

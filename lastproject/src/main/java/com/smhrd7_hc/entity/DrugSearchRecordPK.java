@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @SuppressWarnings("serial")
 @Embeddable
-public class DrugSearchRecordPK implements Serializable{
-	
-	private int drugCode;
-	
-	
+public class DrugSearchRecordPK implements Serializable {
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "drugCode")
+	private DrugList drugCode;
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "id")
 	private Member id;
 
-	
 }
