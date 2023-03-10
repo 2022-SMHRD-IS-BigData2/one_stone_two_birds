@@ -49,6 +49,7 @@ $('input[name=pwdResult]').on('keyup',function(){
 	}
 })
 
+
 const open = (number) => {
   document.querySelectorAll(".modal")[number].classList.remove("hidden");
 }
@@ -94,4 +95,4 @@ document.querySelectorAll(".bg")[2].addEventListener("click", function(){
 document.querySelectorAll(".bg")[3].addEventListener("click", function(){
 		close(3)
 });
-            
+
