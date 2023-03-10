@@ -71,11 +71,8 @@ function kakaoPM9Search() {
 		function placesSearchCB (data, status, pagination) {
 		    if (status === kakao.maps.services.Status.OK) {
 		        for (var i=0; i<data.length; i++) {
-					placeName.push(locationPM9(data[i]))
 		            displayMarker(data[i]);
-					console.log(data[i])
 		        }
-				console.log(placeName)       
 		    }
 		}
 		
@@ -88,31 +85,15 @@ function kakaoPM9Search() {
 		    });
 		
 		    // 마커에 클릭이벤트를 등록합니다
-		    kakao.maps.event.addListener(marker, 'click', function() {
+		    kakao.maps.event.addListener(marker, 'mouseover', function() {
 		        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
 		        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
 		        infowindow.open(map, marker);
 		    });
+		    kakao.maps.event.addListener(marker, 'click', function() {
+		        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+		        infowindow.setContent('<div><p>상호명: '+place.place_name+'</p> <p> 전화번호: '+place.phone+'<br> 주소: '+place.road_address_name+'</p></div><div><a href="'+place.place_url+'"><img src="/img/url.png" height="20"></a></div>');
+		        infowindow.open(map, marker);
+		    });
 		} 
 }
-
-function locationPM9(place) {
-	
-	var result = "";
-	
-	$.ajax({
-		url: "/ajax/roadSearch",
-		data : {
-			"roadAdrress": place.road_address_name
-		},
-		type:"get",
-		async: false,
-		success:function(res){
-			result = res
-		},
-		error:function(e){
-		}
-	});
-	return result;
-	
-} 

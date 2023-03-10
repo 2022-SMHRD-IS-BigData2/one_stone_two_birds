@@ -10,33 +10,23 @@ import com.smhrd7_hc.entity.Member;
 import com.smhrd7_hc.repository.MemberRepository;
 
 @RestController
-@RequestMapping(value="/ajax/*")
+@RequestMapping(value = "/ajax/*")
 public class MemberRestcontroller {
 
 	@Autowired
 	MemberRepository memberRepository;
-	
-	@RequestMapping(value="/search", method = RequestMethod.GET)
-	public String kakaoMemberSearch(@RequestParam(value="id") String id) {
+
+
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String kakaoMemberSearch(@RequestParam(value = "id") String id) {
 		Member member = memberRepository.findOneById(id);
-		
-		System.out.println("전송완료");
+
 		String result = "false";
-		if(member != null) {
+		if (member != null) {
 			result = "true";
-			System.out.println("회원 있음");
 		}
-				
+
 		return result;
 	}
-	
-	@RequestMapping(value="/roadSearch", method= RequestMethod.GET)
-	public Member kakaoRoadSearch(@RequestParam(value="roadAdrress") String roadAdrress) {
-		
-		System.out.println(roadAdrress);
-		
-		Member member = new Member();
-		
-		return member;
-	}
+
 }

@@ -1,21 +1,86 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-<title>Spring Security Example</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/scroll.css">
+    <script class="u-script" type="text/javascript" src="/js/scroll.js" defer=""></script>
+
+    <script class="u-script" type="text/javascript" src="/js/home.js" defer=""></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 </head>
+
 <body>
-	<h1>Welcome!</h1>
-	<p>
-		Click <a th:href="@{/hello}">here</a> to see a greeting.
-	</p>
-	<input type="text" id="kakaomap"/>
-	<button onclick="kakaoMapSearch()">검색</button>
-	
-	<div id="map" style="width:500px;height:400px;"></div>
-	
-	
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <div id="header">
+        <a href="/home"> <img src="/img/logo.png" alt="" style="width: 150px"></a>
+        <div class="wrap">
+            <nav>
+
+                <ul>
+                    <li><a href=""><span>Mypage</span>마이페이지</a></li>
+                    <li><a href="/login"><span>Login</span>로그인</a></li>
+                    <li><a href="/join"><span>Join</span>회원가입</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">Top</button>
+    
+    <div class="section" style="height: 100vh; background-image: url('/img/background.jpg'); 
+  background-size: cover; height:850px; padding-top:80px;">
+
+        <!--First section-->
+        <!-- 파일선택 -->
+
+        <div class="upload-btn-wrapper">
+            <input type="file" id="input_file" multiple="multiple" style="height: 100%; " />
+            <button class="upload-btn" style="margin-left: 742px; margin-top: 0px;">파일선택</button>
+
+            <form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post">
+        </div>
+ 
+        <div id="dropZone" style="margin-top: 59px; margin-left: 700px; width: 450px; height: 200px; border-style: solid; border-color: black; ">
+            <div id="fileDragDesc"> 파일을 드래그 해주세요.
+            </div>
+        </div>
+
+        <div>
+            <table id="fileListTable" style= "width:100%; margin-left: 700px;" >
+                <tbody id="fileTableTbody">
+
+                </tbody>
+            </table>
+        </div>
+
+        <input type="button" onclick="uploadFile(); return false;" class="btn bg_01" value="파일 업로드" style="margin-left: 56%; margin-top:6px">
+
+        </form>
+
+
+
+        <!-- 알약직접검색 -->
+        <form action=""></form>
+        <div class="box">
+            <input type="text" name="알약검색" placeholder="알약을 검색하세요">
+            <button class="w-btn w-btn-indigo" type="submit"><a href="#" class="btn">검색</a></button> <br>
+        </div>
+        </form>
+    </div>
+
+    <div class="section" style="height: 100vh; font-size: 32px; text-align: center; background-color: beige;">
+        	<div id="map" style="width:auto;height:969px;"></div></div>
+    <div class="section" style="height:100vh; font-size: 32px; text-align: center; background-color: white;">1</div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cdcd53cff82aeec615bc251258c0690d&libraries=services,clusterer,drawing"></script>
 	<script type="text/javascript" src="./js/kakaomap.js"></script>
+
 </body>
+
 </html>

@@ -32,8 +32,6 @@ public class LoginController {
 
 	@PostMapping("/join")
 	public String join(@ModelAttribute("Member") Member member) {
-		System.out.println(member.getLivingArea());
-		System.out.println(member.getGender());
 		memberService.insert(member);
 		return "redirect:/login";
 	}
