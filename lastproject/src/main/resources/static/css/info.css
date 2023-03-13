@@ -152,3 +152,25 @@ a {
         font-size: 1rem;
     }
 }
+
+
+.rating {
+        display: flex;
+        align-items: center;
+    }
+
+.rating button {
+        background-color: transparent;
+        border: none;
+        margin-right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+.rating .like i {
+        color: BLUE;
+    }
+
+.rating .dislike i {
+        color: red;
+    }

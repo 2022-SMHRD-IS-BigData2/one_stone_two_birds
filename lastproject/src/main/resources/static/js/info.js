@@ -84,3 +84,16 @@ if(drugData.depositMethodQesitm==null){
 if(drugData.itemImage != null){
 	$('img[name="pillImage"]').attr('src',drugData.itemImage)	
 }
+
+
+// 좋아요, 싫어요 버튼
+
+ $(document).ready(function () {
+ $(".like").click(function () {
+                // 좋아요 버튼 클릭시 실행될 동작
+});
+
+ $(".dislike").click(function () {
+                // 싫어요 버튼 클릭시 실행될 동작
+ });
+ });

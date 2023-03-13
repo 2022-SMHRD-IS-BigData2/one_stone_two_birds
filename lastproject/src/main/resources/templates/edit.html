@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+    <link rel="stylesheet" href="./css/join.css">
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+
+    <div id="header">
+
+        <a href="/home"> <img src="/img/logo.png" alt="" style="width: 150px"></a>
+        <div class="wrap">
+            <nav>
+
+                <ul>
+                    <li><a href=""><span>Mypage</span>마이페이지</a></li>
+                    <li><a href=""><span>Logout</span>로그아웃</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <form action="update.php" method="post" class="container">
+
+        <p>
+            <!-- 회원 정보 -->
+            수정할 회원정보를 입력해주세요
+        </p>
+
+        <!-- Collection of personal(member) information? -->
+        <!-- 회원 정보 -->
+        <div class="MemberInfo_box">
+
+            <!-- 이메일 -->
+            <div>
+                <input type="text" placeholder="이메일">
+                <p>이메일</p>
+            </div>
+
+            <!-- 비밀번호 -->
+            <div>
+                <input type="password" placeholder="비밀번호">
+                <p>비밀번호 메세지</p>
+
+
+            </div>
+
+            <!-- 비밀번호 확인 -->
+            <div>
+                <input type="password" placeholder="비밀번호 확인">
+                <p>비밀번호 확인 메세지</p>
+                <i class="fa-solid fa-eye"></i>
+
+            </div>
+
+            <!-- 닉네임 -->
+            <div>
+                <input type="text" placeholder="닉네임">
+                <p>닉네임 메세지</p>
+            </div>
+
+            <!-- 전화번호 -->
+            <div>
+                <input type="text" placeholder="전화번호">
+                <p>전화번호</p>
+            </div>
+
+            <!-- 성별 -->
+            <select id="select">
+                <option>성별</option>
+                <option value='0'>남자</option>
+                <option value='1'>여자</option>
+
+            </select>
+
+            <!-- 거주지 -->
+            <select id="select">
+                <option>거주지</option>
+                <option value='1'>서울</option>
+                <option value='2'>부산</option>
+                <option value='3'>대구</option>
+                <option value='4'>인천</option>
+                <option value='5'>광주</option>
+                <option value='6'>대전</option>
+                <option value='7'>울산</option>
+                <option value='8'>강원</option>
+                <option value='9'>경기</option>
+                <option value='10'>경남</option>
+                <option value='11'>경북</option>
+                <option value='12'>전남</option>
+                <option value='13'>전북</option>
+                <option value='14'>제주</option>
+                <option value='15'>충남</option>
+                <option value='16'>충북</option>
+            </select>
+            <div>
+                <!-- 회원가입 -->
+                <input type="submit" value="수정하기">
+                
+
+            </div>
+            <div>
+            <input type="submit" value="탈퇴하기">
+        </div>
+    </div>
+
+    </form>
+
+</body>
+
+</html>
