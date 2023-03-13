@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/scroll.css">
     <script class="u-script" type="text/javascript" src="/js/scroll.js" defer=""></script>
 
@@ -23,7 +24,8 @@
 
                 <ul>
                     <li><a href=""><span>Mypage</span>마이페이지</a></li>
-                    <li><a href="/login"><span>Login</span>로그인</a></li>
+                    <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
+                    <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
                     <li><a href="/join"><span>Join</span>회원가입</a></li>
                 </ul>
             </nav>

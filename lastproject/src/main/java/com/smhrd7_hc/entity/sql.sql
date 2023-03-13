@@ -45,7 +45,7 @@ VALUES(2, 'ROLE_MEMBER');
  
 INSERT INTO role
 (id, name)
-VALUES(3, 'ROLE_BOARD');
+VALUES(3, 'ROLE_ALLUSER');
 
 -- 데이터를 생성할 수 있는 권한 등록
 INSERT INTO role
@@ -60,7 +60,23 @@ VALUES(5, 'OP_DELETE_DATA');
 
 INSERT INTO member_roles
 (member_id, role_id)
-VALUES('system', 1);
+VALUES('test', 1);
+INSERT INTO member_roles
+(member_id, role_id)
+VALUES('test', 2);
+INSERT INTO member_roles
+(member_id, role_id)
+VALUES('test', 3);
+
+INSERT INTO member_roles
+(member_id, role_id)
+VALUES('netakasa@gmail.com', 1);
+INSERT INTO member_roles
+(member_id, role_id)
+VALUES('netakasa@gmail.com', 2);
+INSERT INTO member_roles
+(member_id, role_id)
+VALUES('netakasa@gmail.com', 3);
  
 INSERT INTO member_roles
 (member_id, role_id)
