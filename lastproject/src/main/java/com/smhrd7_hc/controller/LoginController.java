@@ -1,7 +1,5 @@
 package com.smhrd7_hc.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +18,7 @@ public class LoginController {
 	private final MemberService memberService;
 
 	@GetMapping("/login")
-	public String login(HttpServletRequest request) {
+	public String login(Model model) {
 		return "login";
 	}
 
@@ -35,5 +33,5 @@ public class LoginController {
 		memberService.insert(member);
 		return "redirect:/login";
 	}
-	
+
 }

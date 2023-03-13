@@ -1,6 +1,9 @@
 package com.smhrd7_hc.controller;
 
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +20,12 @@ public class HomeController {
 	private final DrugAPIService drugAPIService;
 
 	@GetMapping({ "/", "/home" })
-	public String home() {
+	public String home(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = (User) authentication.getPrincipal();
+        
+        model.addAttribute("userInfo", user);
 		return "home";
 	}
 
