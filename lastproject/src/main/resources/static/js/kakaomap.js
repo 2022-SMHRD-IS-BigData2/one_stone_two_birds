@@ -56,7 +56,9 @@ kakao.maps.event.addListener(map, 'zoom_changed', function () {
 kakao.maps.event.addListener(map, 'drag', function () {
 	kakaoPM9Search()
 });
-
+kakao.maps.event.addListener(map, 'mousewheel', function(event) {
+	event.preventDefault();
+});
 
 
 function kakaoPM9Search() {
@@ -92,7 +94,7 @@ function kakaoPM9Search() {
 		    });
 		    kakao.maps.event.addListener(marker, 'click', function() {
 		        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-		        infowindow.setContent('<div><p>상호명: '+place.place_name+'</p> <p> 전화번호: '+place.phone+'<br> 주소: '+place.road_address_name+'</p></div><div><a href="'+place.place_url+'"><img src="/img/url.png" height="20"></a></div>');
+		        infowindow.setContent('<div><p>상호명: '+place.place_name+'</p> <p>전화번호: '+place.phone+'<br> 주소: '+place.road_address_name+'</p><a href="'+place.place_url+'"><img src="/img/url.png" height="20"></a></div>');
 		        infowindow.open(map, marker);
 		    });
 		} 

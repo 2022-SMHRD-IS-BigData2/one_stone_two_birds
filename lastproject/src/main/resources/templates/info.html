@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,7 @@
         <div style="margin-top: 130px;">
         <div class="container" style="height: 310px;">
             <div class="contents">
-                <div class="image"><img src="/img/195900001.jpg" alt="검색된 약사진"> </div>
+                <div class="image"><img name="pillImage" src="/img/195900001.jpg" alt="검색된 약사진"> </div>
                 <p></p>
             </div>
         </div>
@@ -58,125 +58,43 @@
 
             <section id="main_section" style="padding-left:450px; padding-right:450px;">
                 <article class="main_article" id="tab-제품명">
-                    <h1>제품명</h1>
-                    <p>타이레놀 500mg</p>
+                    <h1 name="제품명">제품명</h1>
                 </article>
                 <article class="main_article" id="tab-업체명">
-                    <h1>업체명</h1>
-                    <p>유한양행</p>
+                    <h1 name="업체명">업체명</h1>
                 </article>
                 <article class="main_article" id="tab-효능">
-                    <h1>효능</h1>
-                    <p>지속적으로 SGPT가 상승되어 있는 만성지속성 간염</p>
+                    <h1 name="효능">효능</h1>
                 </article>
                 <article class="main_article" id="tab-사용법">
-                    <h1>사용법</h1>
-                    <p>보통 성인 1회 1캡슐, 1일 3회 식후 경구 투여한다</p>
+                    <h1 name="사용법">사용법</h1>
                 </article>
                 <article class="main_article" id="tab-복용전주의">
-                    <h1>복용전 주의</h1>
-                    <p>1. 다음 환자에게는 투여하지 말 것
-
-                        1) 완전담도 폐쇄가 있는 환자
-                        2) 이 약은 유당을 함유하고 있으므로, 갈락토오스 불내성(galactose intolerance), Lapp 유당분해효소 결핍증(Lapp lactase
-                        deficiency) 또는 포도당-갈락토오스 흡수장애(glucose-galactose malabosorption) 등의 유전적인 문제가 있는 환자에게는 투여하면 안 된다.
-                        2. 다음 환자에게는 신중히 투여할 것
-                        1) 만성 활동성 간염환자
-                        2) 간경화 환자
-                        3) 저칼륨혈증이 있는 환자
-                        4) 심한 췌장 질환이 있는 환자
-                        5) 소화성 궤양이 있는 환자
-                        6) 담석증 환자
-                        3. 부작용
-                        1) 소화기 : 때때로 설사, 구역, 구토, 드물게 복통, 변비, 가슴앓이, 위부불쾌감 등의 증상이 나타날 수 있다.
-                        2) 과민증 : 때때로 가려움증, 드물게 발진 등의 과민증상이 나타날 수 있다. 간혹 피진이 생길 수 있으나 일반적으로 항과민약을 함께 사용하면 소실된다.
-                        3) 일과성 황달이 나타날 수 있으나 투약을 중지하거나 황달 치료제를 병용 투여하면 소실된다.
-                        4) 기타 : 드물게 전신권태감, 현기가 나타날 수 있다.
-                        5) 국내 시판 후 조사결과
-                        국내에서 재심사를 위하여 6년 동안 640명의 만성지속성간염환자를 대상으로 실시한 시판 후 사용성적조사결과 유해사례 및 약물유해반응 발현율은 0.31%(2명/640명,
-                        3건)로 보고되었으며, 간경화, 복수, 급성 C형 간염 각각 0.16%(1명/640명, 1건)로 조사되었다. 모두 중대하고 예상하지 못한 약물유해반응이며, 이 약과의
-                        인과관계를 배제할 수 없었다.
-                        4. 일반적 주의사항
-                        1) 정해진 용법 용량을 지킬 것
-                        2) 장기간 (최대8주)의 복용에도 불구하고 증상의 개선이 없거나, 이 약의 복용으로 이상 증상이 나타나는 경우에는 투여를 중지하고 의사 또는 약사와 상의할 것
-                        3) 어린이의 손이 닿지 않는 곳에 보관할 것
-                        5. 임신부에대한 투여
-                        동물 실험에서 태자독성이 보고되어 있으므로 임부 또는 임신하고 있을 가능성이 있는 부인에게는 투여하지 않는 것이 바람직하다.
-                        6. 상호작용
-                        경구 당뇨병약(톨부타미드 등)과 병용 투여 시 경구 당뇨병약의 작용이 증가 될 수 있으므로 신중히 투여할 것
-
-
-
-                        7. 의약품동등성시험 정보주1)
-                        가. 시험약 헤파토캡슐((주)넥스팜코리아)과 대조약 유디비캡슐((주)파마킹)을 2X2 교차시험으로 각 3캡슐씩 건강한 성인에게 공복 시 단회 경구투여하여 37명의 혈중
-                        비페닐디메틸디카르복실레이트 및 우르소데옥시콜산을 측정한 결과, 비교평가항목치(AUCt, Cmax)를 로그변환하여 통계처리하였을 때, 평균치 차의 90% 신뢰구간이 log
-                        0.8에서 log 1.25 이내로서 생물학적으로 동등함을 입증하였다.
-                        <비페닐디메틸디카르복실레이트>
-                    </p>
+                    <h1 name="복용전주의">복용전 주의</h1>
                 </article>
                 <article class="main_article" id="tab-주의사항">
-                    <h1>주의사항</h1>
-                    <p>1. 다음 환자에게는 투여하지 말 것
-
-                        1) 완전담도 폐쇄가 있는 환자
-                        2) 이 약은 유당을 함유하고 있으므로, 갈락토오스 불내성(galactose intolerance), Lapp 유당분해효소 결핍증(Lapp lactase
-                        deficiency) 또는 포도당-갈락토오스 흡수장애(glucose-galactose malabosorption) 등의 유전적인 문제가 있는 환자에게는 투여하면 안 된다.
-                        2. 다음 환자에게는 신중히 투여할 것
-                        1) 만성 활동성 간염환자
-                        2) 간경화 환자
-                        3) 저칼륨혈증이 있는 환자
-                        4) 심한 췌장 질환이 있는 환자
-                        5) 소화성 궤양이 있는 환자
-                        6) 담석증 환자
-                        3. 부작용
-                        1) 소화기 : 때때로 설사, 구역, 구토, 드물게 복통, 변비, 가슴앓이, 위부불쾌감 등의 증상이 나타날 수 있다.
-                        2) 과민증 : 때때로 가려움증, 드물게 발진 등의 과민증상이 나타날 수 있다. 간혹 피진이 생길 수 있으나 일반적으로 항과민약을 함께 사용하면 소실된다.
-                        3) 일과성 황달이 나타날 수 있으나 투약을 중지하거나 황달 치료제를 병용 투여하면 소실된다.
-                        4) 기타 : 드물게 전신권태감, 현기가 나타날 수 있다.
-                        5) 국내 시판 후 조사결과
-                        국내에서 재심사를 위하여 6년 동안 640명의 만성지속성간염환자를 대상으로 실시한 시판 후 사용성적조사결과 유해사례 및 약물유해반응 발현율은 0.31%(2명/640명,
-                        3건)로 보고되었으며, 간경화, 복수, 급성 C형 간염 각각 0.16%(1명/640명, 1건)로 조사되었다. 모두 중대하고 예상하지 못한 약물유해반응이며, 이 약과의
-                        인과관계를 배제할 수 없었다.
-                        4. 일반적 주의사항
-                        1) 정해진 용법 용량을 지킬 것
-                        2) 장기간 (최대8주)의 복용에도 불구하고 증상의 개선이 없거나, 이 약의 복용으로 이상 증상이 나타나는 경우에는 투여를 중지하고 의사 또는 약사와 상의할 것
-                        3) 어린이의 손이 닿지 않는 곳에 보관할 것
-                        5. 임신부에대한 투여
-                        동물 실험에서 태자독성이 보고되어 있으므로 임부 또는 임신하고 있을 가능성이 있는 부인에게는 투여하지 않는 것이 바람직하다.
-                        6. 상호작용
-                        경구 당뇨병약(톨부타미드 등)과 병용 투여 시 경구 당뇨병약의 작용이 증가 될 수 있으므로 신중히 투여할 것
-
-
-
-                        7. 의약품동등성시험 정보주1)
-                        가. 시험약 헤파토캡슐((주)넥스팜코리아)과 대조약 유디비캡슐((주)파마킹)을 2X2 교차시험으로 각 3캡슐씩 건강한 성인에게 공복 시 단회 경구투여하여 37명의 혈중
-                        비페닐디메틸디카르복실레이트 및 우르소데옥시콜산을 측정한 결과, 비교평가항목치(AUCt, Cmax)를 로그변환하여 통계처리하였을 때, 평균치 차의 90% 신뢰구간이 log
-                        0.8에서 log 1.25 이내로서 생물학적으로 동등함을 입증하였다.
-                        <비페닐디메틸디카르복실레이트>
-                    </p>
+                    <h1 name="주의사항">주의사항</h1>
+      
                 </article>
                 <article class="main_article" id="tab-상호작용">
-                    <h1>상호작용</h1>
-                    <p>딸기 초콜렛 우유 같이 먹음 맛있겠다</p>
+                    <h1 name="상호작용">상호작용</h1>
                 </article>
-                <article class="main_article" id="tab-주의사항">
-                    <h1>부작용</h1>
-                    <p>약 많이 먹으면 아플 수 있어요 두드러기 날 수 있어요</p>
+                <article class="main_article" id="tab-부작용">
+                    <h1 name="부작용">부작용</h1>
                 </article>
                 <article class="main_article" id="tab-보관법">
-                    <h1>보관법 </h1>
-                    <p>직사광전을 피하고 실온보관해주세요</p>
+                    <h1 name="보관법">보관법 </h1>
                 </article>
             </section>
         </div>
     </div>
     </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
         $(function () {
             $('.et-hero-tabs-container > a').click(function () {
-                var
-                    $('html, body').animate({ scrollTop: $(this.hash).offset().top }, 300);
+                $('html, body').animate({ scrollTop: $(this.hash).offset().top }, 300);
             });
         });
 
@@ -191,8 +109,16 @@
                 }, 300);
             });
         });
-
     </script>
+	<script th:inline="javascript">
+	    /*<![CDATA[*/
+	    	
+	    	const drugData = JSON.parse(/*[[${data}]]*/).body.items[0]
+		    /*]]>*/
+	    /*]]>*/
+	</script>
+	
+	<script type="text/javascript" src="/js/info.js" defer></script>
 
 </body>
 

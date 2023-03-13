@@ -43,6 +43,7 @@ public class SecurityConfiguration {
 				.ignoringAntMatchers("/loginProc")
 				.ignoringAntMatchers("/social/**")
 				.ignoringAntMatchers("/ajax/**")
+				.ignoringAntMatchers("/info")
 				.ignoringAntMatchers("/logout")
 				.and()
 			.formLogin()
