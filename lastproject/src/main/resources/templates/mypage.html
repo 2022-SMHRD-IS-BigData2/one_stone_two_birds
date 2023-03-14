@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/header.css" media="screen">
+    <link rel="preconnect" href="http://fonts.googleapis.com">
+    <link rel="preconnect" href="http://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../sanitize/sanitize.css">
+    <link rel="stylesheet" href="2-17.css">
+    <link href="http://fonts.googleapis.com/css2? family=Roboto:ital, wght@1, 900&display=swap." rel="stylesheet">
+
+    <title>mypage</title>
+</head>
+
+
+<style>
+    *{
+        margin: 0; padding:0;}
+        body{font-family:"Helvetica", sans-serif}
+        a{text-decoration: none;}
+        li{list-style: none;}
+
+
+   
+</style>
+
+<style>
+    #wrap {
+        overflow: hidden;     
+    }
+
+    #wrap>#main_lnb {
+        float: left;
+        width: 200px;
+    }
+
+    #wrap> #content_wrap {
+        float: left;
+         width: 100%; 
+        margin-right: -200px; 
+    }
+
+    #wrap>#content_wrap>#content {
+        padding-right: 200px;
+    }
+
+    #wrap {
+
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 150px;
+    }
+    #wrap>#main_lnb{
+        width: 180px;
+        height: 700px;
+        position: relative;
+        background: #5b8f8f;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #main_lnb>ul{
+        margin-top: -218px;
+        display:flex;
+        flex-direction: column;
+        list-style: none;
+        height: 100%;
+        justify-content: space-evenly;
+    }
+    #main_lnb>ul>li>a {
+        display: block;
+        height: 0px;
+        line-height: 100px;
+        padding-left: 15px;
+        font-size: large;
+        text-align: left;
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        text-shadow: 4px 2px 2px gray; 
+    }
+
+    #content {
+        background: white;
+    }
+
+    article {
+        width:200px;
+        padding-left: 50px;
+        padding-bottom: 20px;
+    }
+</style>
+<style>
+    image{
+        width:50%;
+        padding-left: 10px;
+    }
+    #recent{
+        padding-top: 20px;
+        padding-left: 10px;
+        display: block;
+        width: 78%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    text{
+        padding: 0 30px;
+        width:50%;
+    }
+</style>
+
+
+
+<body>
+    <div id="header">
+        <a href="/home"> <img src="./images/logo.png" alt="" style="width: 150px"></a>
+        <div class="wrap">
+            <nav>
+
+                <ul>
+                    <li><a href="/mypage"><span>Mypage</span>마이페이지</a></li>
+                    <li><a href=""><span>Logout</span>로그아웃</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- nav -->
+    <div id="wrap">
+        <nav id="main_lnb">
+            <ul>
+                <li><a href="/mypage">검색한 약</a></li>
+                <li><a href="/like">약관리</a></li>
+                <li><a href="/modify">개인정보관리</a></li>
+            </ul>
+        </nav>
+
+        <div id="content_wrap">
+            <div id="content">
+                <article>
+                    <h2 class="heading" style="margin-left: 30px;"> 검색한 약</h2>
+                </article>
+                <hr class="one" style="width:800px; margin-left: 50px;">
+            </div>
+            
+            <div class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
+                <div class="image" style="width: fit-content; max-width: 60%;">
+                    <a href="#"><img src="./images/195900001.jpg" alt="약정보페이지로 이동" id="recent"></a>
+                </div>
+                <div class="text" >
+                    <h2>타이레놀</h2>
+                    <p>제조사명</p>
+                
+                </div>
+            </div>
+        </div>
+
+
+   
+        
+
+</body>
+
+</html>
