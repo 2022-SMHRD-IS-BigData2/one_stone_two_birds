@@ -115,11 +115,8 @@ $('#sub-button').on('click', function() {
 	const pwdResultVal = $('input[name=pwdResult]').val()
 	const nickVal = $('input[name=nickname]').val()
 	const birthVal = $('input[name=birthday]').val()
-	console.log(birthVal)
 	const genderVal = $('select[name=gender]').val()
-	console.log(genderVal)
 	const livingAreaVal = $('select[name=livingArea]').val()
-	console.log(livingAreaVal)
 
 	// 필수동의 항목 체크
 	if (check01 && check02) {
@@ -141,7 +138,16 @@ $('#sub-button').on('click', function() {
 									if(genderVal != '성별'){
 										//거주지 빈칸 체크
 										if(livingAreaVal != '거주지'){
-											swal("회원가입 성공", "회원가입이 완료되었습니다.","success")											
+											swal("회원가입 성공", "회원가입이 완료되었습니다.","success")
+											let param = {
+												id: idVal,
+												pwd: pwdVal,
+												nickname: nickVal,
+												birthday: birthVal,
+												gender: genderVal,
+												livingArea: livingAreaVal
+											}
+											post_to_url("/join",param,"post")
 										//거주지 빈칸 체크
 										}else{
 											swal("주의", "사는 지역을 입력해주세요", "warning")

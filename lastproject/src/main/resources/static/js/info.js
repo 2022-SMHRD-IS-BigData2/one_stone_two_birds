@@ -90,7 +90,20 @@ if(drugData.itemImage != null){
 
  $(document).ready(function () {
  $(".like").click(function () {
-                // 좋아요 버튼 클릭시 실행될 동작
+     $.ajax({
+		url:"/ajax/like",
+		data:{
+			id: "",
+			drugCode: ""
+		},
+		type:"get",
+		success:function(res){
+			
+		},
+		error:function(e){
+			
+		}			
+	})
 });
 
  $(".dislike").click(function () {

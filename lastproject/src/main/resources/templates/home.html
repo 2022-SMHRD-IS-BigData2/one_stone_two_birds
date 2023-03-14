@@ -23,7 +23,7 @@
             <nav>
 
                 <ul>
-                    <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/mypage"><span>Mypage</span>마이페이지</a></li>
+                    <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
                     <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
                     <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
                     <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/join"><span>Join</span>회원가입</a></li>
@@ -70,7 +70,7 @@
         <form action=""></form>
         <div class="box">
             <input type="text" name="알약검색" placeholder="알약을 검색하세요">
-            <button class="w-btn w-btn-indigo" type="submit"><a href="#" class="btn">검색</a></button> <br>
+            <button class="w-btn w-btn-indigo" type="submit"><a href="/info" class="btn">검색</a></button> <br>
         </div>
         </form>
     </div>
