@@ -41,13 +41,13 @@
 
             <!-- 이메일 -->
             <div>
-                <input type="text" placeholder="이메일">
+                <input type="text" placeholder="이메일" readonly name="id" th:value="${userInfo.id}">
                 <p>이메일</p>
             </div>
 
             <!-- 비밀번호 -->
             <div>
-                <input type="password" placeholder="비밀번호">
+                <input type="password" placeholder="비밀번호" name="pwd">
                 <p>비밀번호 메세지</p>
 
 
@@ -55,7 +55,7 @@
 
             <!-- 비밀번호 확인 -->
             <div>
-                <input type="password" placeholder="비밀번호 확인">
+                <input type="password" placeholder="비밀번호 확인" name="pwdResult">
                 <p>비밀번호 확인 메세지</p>
                 <i class="fa-solid fa-eye"></i>
 
@@ -63,57 +63,61 @@
 
             <!-- 닉네임 -->
             <div>
-                <input type="text" placeholder="닉네임">
+                <input type="text" placeholder="닉네임" name="nickname" th:value="${userInfo.nickname}">
                 <p>닉네임 메세지</p>
             </div>
 
             <!-- 전화번호 -->
             <div>
-                <input type="text" placeholder="전화번호">
+                <input type="date" placeholder="생년월일" name="birthday">
                 <p>전화번호</p>
             </div>
 
             <!-- 성별 -->
-            <select id="select">
-                <option>성별</option>
-                <option value='0'>남자</option>
-                <option value='1'>여자</option>
-
-            </select>
+			<select class="select" name="gender">
+			  <option>성별</option>
+			  <option value='male' th:selected="${userInfo.gender == 'male'}">남자</option>
+			  <option value='female' th:selected="${userInfo.gender == 'female'}">여자</option>
+			</select>
 
             <!-- 거주지 -->
-            <select id="select">
-                <option>거주지</option>
-                <option value='1'>서울</option>
-                <option value='2'>부산</option>
-                <option value='3'>대구</option>
-                <option value='4'>인천</option>
-                <option value='5'>광주</option>
-                <option value='6'>대전</option>
-                <option value='7'>울산</option>
-                <option value='8'>강원</option>
-                <option value='9'>경기</option>
-                <option value='10'>경남</option>
-                <option value='11'>경북</option>
-                <option value='12'>전남</option>
-                <option value='13'>전북</option>
-                <option value='14'>제주</option>
-                <option value='15'>충남</option>
-                <option value='16'>충북</option>
-            </select>
+			<select class="select" name="livingArea">
+			  <option>거주지</option>
+			  <option value='서울' th:selected="${userInfo.livingArea == '서울'}">서울</option>
+			  <option value='부산' th:selected="${userInfo.livingArea == '부산'}">부산</option>
+			  <option value='대구' th:selected="${userInfo.livingArea == '대구'}">대구</option>
+			  <option value='인천' th:selected="${userInfo.livingArea == '인천'}">인천</option>
+			  <option value='광주' th:selected="${userInfo.livingArea == '광주'}">광주</option>
+			  <option value='대전' th:selected="${userInfo.livingArea == '대전'}">대전</option>
+			  <option value='울산' th:selected="${userInfo.livingArea == '울산'}">울산</option>
+			  <option value='강원' th:selected="${userInfo.livingArea == '강원'}">강원</option>
+			  <option value='경기' th:selected="${userInfo.livingArea == '경기'}">경기</option>
+			  <option value='경남' th:selected="${userInfo.livingArea == '경남'}">경남</option>
+			  <option value='경북' th:selected="${userInfo.livingArea == '경북'}">경북</option>
+			  <option value='전남' th:selected="${userInfo.livingArea == '전남'}">전남</option>
+			  <option value='전북' th:selected="${userInfo.livingArea == '전북'}">전북</option>
+			  <option value='제주' th:selected="${userInfo.livingArea == '제주'}">제주</option>
+			  <option value='충남' th:selected="${userInfo.livingArea == '충남'}">충남</option>
+			  <option value='충북' th:selected="${userInfo.livingArea == '충북'}">충북</option>
+			</select>
             <div>
                 <!-- 회원가입 -->
-                <input type="submit" value="수정하기">
+                <input type="button" value="수정하기" id="edit">
                 
 
             </div>
             <div>
-            <input type="submit" value="탈퇴하기">
+            <input type="button" value="탈퇴하기" id="remove">
         </div>
     </div>
 
     </form>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <script type="text/javascript" src="/js/edit.js">
 
+</script>
+</script>
 </body>
 
 </html>
