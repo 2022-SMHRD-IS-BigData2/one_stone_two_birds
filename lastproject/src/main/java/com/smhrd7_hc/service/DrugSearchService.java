@@ -89,5 +89,10 @@ public class DrugSearchService {
 
 		drugSearchRecordRepository.save(record);
 	}
+	
+	@Transactional
+	public void updateRecord(String id, String drugCode) {
+		drugSearchRecordRepository.updateSearchDate(id, drugCode);
+	}
 
 }

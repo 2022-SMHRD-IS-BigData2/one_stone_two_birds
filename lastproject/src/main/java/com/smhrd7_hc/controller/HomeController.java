@@ -51,7 +51,11 @@ public class HomeController {
 
 				if (drugInfo == null) {
 					drugSearchService.inserRecord(id, drugCode);
+				}else if (drugInfo != null) {
+					drugSearchService.updateRecord(id, drugCode);
 				}
+				
+				
 				try {
 					model.addAttribute("data", drugAPIService.drugApi(drugCode, drugName));
 				} catch (Exception e) {
@@ -69,6 +73,8 @@ public class HomeController {
 
 					if (drugInfo == null) {
 						drugSearchService.inserRecord(id, drugCode);
+					}else if (drugInfo != null) {
+						drugSearchService.updateRecord(id, drugCode);
 					}
 
 					model.addAttribute("data", result);

@@ -15,7 +15,7 @@ import com.smhrd7_hc.entity.Member;
 @Repository
 public interface DrugSearchRecordRepository extends JpaRepository<DrugSearchRecord, DrugSearchRecordPK> {
 
-	@Query("SELECT dsr FROM DrugSearchRecord dsr WHERE dsr.drugSearchRecordPK.id.id = :memberId")
+	@Query("SELECT dsr FROM DrugSearchRecord dsr WHERE dsr.drugSearchRecordPK.id.id = :memberId ORDER BY dsr.searchDate DESC")
 	List<DrugSearchRecord> findByMemberId(@Param("memberId") String memberId);
 
 	@Query("SELECT dsr FROM DrugSearchRecord dsr WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode")
@@ -31,4 +31,7 @@ public interface DrugSearchRecordRepository extends JpaRepository<DrugSearchReco
 	void updatePillDislike(@Param("pillDislike") Integer pillDisLike, @Param("memberId") String memberId,
 			@Param("drugCode") String drugCode);
 
+	@Modifying
+	@Query("UPDATE DrugSearchRecord dsr SET dsr.searchDate = CURRENT_TIMESTAMP WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode")
+	void updateSearchDate(@Param("memberId") String memberId, @Param("drugCode") String drugCode);
 }
