@@ -16,7 +16,6 @@ import com.smhrd7_hc.service.MemberService;
 @RequestMapping(value = "/social/*")
 public class SocialController {
 
-
 	@Autowired
 	MemberRepository memberRepository;
 
@@ -64,8 +63,7 @@ public class SocialController {
 			@RequestParam(value = "password", required = false) String password,
 			@RequestParam(value = "nickname", required = false) String nickname,
 			@RequestParam(value = "gender", required = false) String gender,
-			@RequestParam(value = "birthday", required = false) String birthday,
-			Model model) throws Exception {
+			@RequestParam(value = "birthday", required = false) String birthday, Model model) throws Exception {
 
 		Member member = memberRepository.findOneById(id);
 		String nextPage = "";
@@ -90,7 +88,7 @@ public class SocialController {
 			userInfo.setNickname(nickname);
 			userInfo.setGender(gender);
 			userInfo.setBirthday(birthday);
-			
+
 			System.out.println(gender);
 			System.out.println(birthday);
 
@@ -109,7 +107,6 @@ public class SocialController {
 		return "login";
 	}
 
-	
 	@RequestMapping("/callback")
 	public String callback() {
 		return "callback";

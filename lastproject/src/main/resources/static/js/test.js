@@ -1,60 +1,20 @@
-$('#test').on('click',function(){
-	var page_no = $('input[name="pageNo"]').val()
-	if(page_no.length == 0){
-		page_no = "1";
-	}
-	$.ajax({
-		url:"http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList",
-		data:{
-			serviceKey:"nOpbKEOOTeYPonSnPwFJ/bGrXOM4uVVRmGPmE8/+jvwOY+ZOvY2P6ZMyelh0/4m8VX3granOhVp50XlIT3BdBA==",
-			//pageNo:"",
-			numOfRows:"1",
-			entpName:"",
-			itemName:"",
-			itemSeq:page_no,
-			efcyQesitm:"",
-			useMethodQesitm:"",
-			atpnWarnQesitm:"",
-			atpnQesitm:"",
-			intrcQesitm:"",
-			seQesitm:"",
-			depositMethodQesitm:"",
-			openDe:"",
-			updateDe:"",
-			type:"json"
-		},
-		type:"get",
-		success:function(res){
-			console.log("res")
-			console.log(res)
-			console.log(res.body.items[0].itemImage)
-			console.log(res.body.items[0].itemSeq)
-			$('#itemName').text("약품이름: "+res.body.items[0].itemName)
-			$('#itemSeq').text("약품코드: "+res.body.items[0].itemSeq)
-				$.ajax({
-					url:"/ajax/drugImage",
-					data:{
-						drugCode : res.body.items[0].itemSeq
-					},
-					type:"get",
-					success:function(res){
-						$('#imgSrc').attr('src',res.itemImage)
-						$('#imgSrc').attr('alt',res.drugCode)
-					},
-					error:function(e){
-						
-					}
-				})
-		},
-		error:function(e){
-			console.log(e)
-			
-		}
-	})
-})
+console.log(drugData)
+let today = new Date();
+let thirtyDaysAgo = new Date(today);
+thirtyDaysAgo.setDate(today.getDate() - 30);
 
-$('#drugImg').on('click',function(){
-	var drugCode = $('input[name="drugCode"]').val()
-	console.log(drugCode)
+let dateString = "2023-03-15";
+let targetDate = new Date(dateString);
+let timeDiff = targetDate.getTime() - thirtyDaysAgo.getTime();
+console.log(today)
+console.log(thirtyDaysAgo);
+console.log(timeDiff)
 
-})
+const day = timeDiff / (1000 * 60 * 60 * 24);
+const hour = timeDiff / (1000 * 60 * 60);
+const minute = timeDiff / (1000 * 60);
+const second = timeDiff / 1000;
+console.log("day: ", day);
+console.log("hour: ", hour);
+console.log("minute: ", minute);
+console.log("second: ", second);

@@ -25,18 +25,19 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @RequestMapping("/myPage/*")
 public class MyPageController {
-	
+
 	@Autowired
 	private final MemberRepository memberRepository;
-	
+
 	@Autowired
 	private final DrugSearchRecordRepository drugSearchRecordRepository;
-	
+
 	@GetMapping("/edit")
 	public String edit(Model model) {
 		String result = "login";
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if(authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
+		if (authentication != null && authentication.isAuthenticated()
+				&& !"anonymousUser".equals(authentication.getPrincipal())) {
 			String username = authentication.getName();
 			Member userInfo = memberRepository.findOneById(username);
 			userInfo.setPwd("");
@@ -45,42 +46,35 @@ public class MyPageController {
 		}
 		return result;
 	}
-	
+
 	@GetMapping("/mypage")
 	public String mypage(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		
+
 		List<DrugSearchRecord> drugList = drugSearchRecordRepository.findByMemberId(id);
-		
-		
-		if(drugList.size() > 0) {
-			
-			for(int i=0; i < drugList.size(); i++) {
-				System.out.println(drugList);
-				System.out.println(drugList.get(i));
-				System.out.println(drugList.get(i).getDrugSearchRecordPK());
-				System.out.println(drugList.get(i).getDrugSearchRecordPK().getDrugCode());
+
+		if (drugList.size() > 0) {
+
+			for (int i = 0; i < drugList.size(); i++) {
 				drugList.get(i).getDrugSearchRecordPK().getId().setRoles(null);
 			}
 			model.addAttribute("drugList", drugList);
 		}
-		
-		
+
 		return "mypage";
 	}
-	
+
 	@GetMapping("/like")
 	public String like(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		
+
 		List<DrugSearchRecord> drugList = drugSearchRecordRepository.findByMemberId(id);
-		
-		
-		if(drugList.size() > 0) {
-			
-			for(int i=0; i < drugList.size(); i++) {
+
+		if (drugList.size() > 0) {
+
+			for (int i = 0; i < drugList.size(); i++) {
 				drugList.get(i).getDrugSearchRecordPK().getId().setRoles(null);
 			}
 			model.addAttribute("drugList", drugList);

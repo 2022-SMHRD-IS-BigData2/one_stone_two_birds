@@ -10,6 +10,5 @@ public class DrugSearchRecordController {
 
 	@Autowired
 	private DrugSearchRecordRepository repository;
-	
-	
+
 }

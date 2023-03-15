@@ -7,7 +7,7 @@ import com.smhrd7_hc.repository.MemberRepository;
 
 @Controller
 public class MemberController {
-	
+
 	@Autowired
 	private MemberRepository repository;
 

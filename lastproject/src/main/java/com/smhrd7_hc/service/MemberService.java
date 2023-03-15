@@ -30,7 +30,7 @@ public class MemberService {
 
 	@Autowired
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	@Autowired
 	private PasswordEncoder encoder;
 
@@ -40,26 +40,25 @@ public class MemberService {
 		rolesSet.add(roleRepository.findOneById(2L)); // id : 2 ROLE_USER 역할
 		memberRepository.save(member.toEntity(rolesSet));
 	}
-	
+
 	@Transactional
 	public void memberUpdate(Member member) {
-	    Optional<Member> optional = memberRepository.findById(member.getId());
-	    System.out.println("이것은: ");
-	    System.out.println(optional);
-	    if (optional.isPresent()) {
-	        Member persistence = optional.get();
-	        String rawPassword = member.getPwd();
-	        System.out.println(rawPassword);
-	        String encPassword = encoder.encode(rawPassword);
-	        persistence.setPwd(encPassword);
-	        persistence.setBirthday(member.getBirthday());
-	        persistence.setGender(member.getGender());
-	        persistence.setLivingArea(member.getLivingArea());
-	        persistence.setNickname(member.getNickname());
-	    } else {
-	        throw new IllegalArgumentException("회원 찾기 실패");
-	    }
+		Optional<Member> optional = memberRepository.findById(member.getId());
+		System.out.println("이것은: ");
+		System.out.println(optional);
+		if (optional.isPresent()) {
+			Member persistence = optional.get();
+			String rawPassword = member.getPwd();
+			System.out.println(rawPassword);
+			String encPassword = encoder.encode(rawPassword);
+			persistence.setPwd(encPassword);
+			persistence.setBirthday(member.getBirthday());
+			persistence.setGender(member.getGender());
+			persistence.setLivingArea(member.getLivingArea());
+			persistence.setNickname(member.getNickname());
+		} else {
+			throw new IllegalArgumentException("회원 찾기 실패");
+		}
 	}
-	
 
 }

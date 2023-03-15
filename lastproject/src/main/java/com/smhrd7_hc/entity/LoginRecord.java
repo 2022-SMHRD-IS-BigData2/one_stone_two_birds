@@ -20,18 +20,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class LoginRecord {
-	
+
 	@Id
 	@Column(length = 100)
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long loginNo;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, targetEntity = Member.class)
-	@JoinColumn(name = "id",referencedColumnName = "id")
+	@JoinColumn(name = "id", referencedColumnName = "id")
 	private Member id;
-	
+
 	@Column(updatable = false, insertable = false, columnDefinition = "datetime default now()")
 	private Date loginDate;
-	
 
 }

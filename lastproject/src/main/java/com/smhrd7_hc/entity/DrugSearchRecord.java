@@ -1,5 +1,7 @@
 package com.smhrd7_hc.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -13,14 +15,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor // 전체생성자
 @Data
 //@SuppressWarnings("serial")
-public class DrugSearchRecord{
-	
+public class DrugSearchRecord {
+
 	@EmbeddedId
 	private DrugSearchRecordPK drugSearchRecordPK;
-	
+
 	@Column(length = 1, columnDefinition = "Integer default 0")
 	private Integer pillLike;
-	
+
 	@Column(length = 1, columnDefinition = "Integer default 0")
 	private Integer pillDislike;
+
+	@Column(updatable = false, insertable = false, columnDefinition = "datetime default now()")
+	private Date searchDate;
 }

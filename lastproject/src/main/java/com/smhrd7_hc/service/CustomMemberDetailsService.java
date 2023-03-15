@@ -29,7 +29,7 @@ public class CustomMemberDetailsService implements UserDetailsService {
 
 	private final MemberRepository memberRepository;
 	private LoginRecordRepository loginRecordRepository;
-	
+
 	@Override
 	@Transactional(readOnly = false)
 	public UserDetails loadUserByUsername(String id) {
@@ -62,12 +62,11 @@ public class CustomMemberDetailsService implements UserDetailsService {
 				loginRecordRepository.save(loginRecord);
 
 			}
-			
 
 			return new User(member.getId(), member.getPwd(), grantedAuthorities);
 		} else {
 			throw new UsernameNotFoundException("can not find User : " + id);
 		}
 	}
-	
+
 }

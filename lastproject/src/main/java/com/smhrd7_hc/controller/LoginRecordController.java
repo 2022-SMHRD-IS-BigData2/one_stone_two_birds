@@ -7,7 +7,7 @@ import com.smhrd7_hc.repository.LoginRecordRepository;
 
 @Controller
 public class LoginRecordController {
-	
+
 	@Autowired
 	private LoginRecordRepository repository;
 }

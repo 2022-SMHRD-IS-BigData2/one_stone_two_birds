@@ -29,10 +29,10 @@ public class MemberRestcontroller {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	@Autowired
 	private DrugSearchService drugSearchService;
 
@@ -67,26 +67,25 @@ public class MemberRestcontroller {
 	@RequestMapping(value = "/drugImage", method = RequestMethod.GET)
 	public DrugList drugImage(@RequestParam(value = "drugCode") String drugCode) {
 
-		System.out.println("drugCode: " + drugCode);
 		DrugList drugImg = drugListRepository.findOneByDrugCode(drugCode);
 
 		return drugImg;
 	}
-	
-	@RequestMapping(value="/update", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String memberUpdate(@RequestBody Member member) {
-		System.out.println("넘어옴");
 		memberService.memberUpdate(member);
-		
+
 		return "true";
 	}
-	
-	@RequestMapping(value="/like", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/like", method = RequestMethod.GET)
 	public String like(String id, String drugCode) {
 		String result = drugSearchService.like(id, drugCode);
 		return result;
 	}
-	@RequestMapping(value="/dislike", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/dislike", method = RequestMethod.GET)
 	public String dislike(String id, String drugCode) {
 		String result = drugSearchService.dislike(id, drugCode);
 		return result;

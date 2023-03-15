@@ -12,7 +12,7 @@ import com.smhrd7_hc.entity.LoginRecord;
 
 @Repository
 public interface LoginRecordRepository extends JpaRepository<LoginRecord, Long> {
-	
+
 	@Query("SELECT lr FROM LoginRecord lr WHERE lr.id.id = :id ORDER BY lr.loginDate DESC")
 	public List<LoginRecord> findLatestLoginRecord(@Param("id") String id, Pageable pageable);
 }

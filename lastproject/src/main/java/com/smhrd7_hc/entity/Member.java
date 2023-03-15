@@ -28,33 +28,34 @@ import lombok.NoArgsConstructor;
 public class Member {
 
 	@Id
-	@Column( length = 20)
+	@Column(length = 20)
 	private String id;
-	
-	@Column( length = 100 )
+
+	@Column(length = 100)
 	private String pwd;
-	
+
 	@Column(updatable = false, insertable = false, columnDefinition = "datetime default now()")
 	private Date indate;
-	
-	@Column( length = 40 )
+
+	@Column(length = 40)
 	private String nickname;
-	
-	@Column( length = 60 )
+
+	@Column(length = 60)
 	private String birthday;
-	
-	@Column( length = 10, columnDefinition = "enum('male', 'female')")
+
+	@Column(length = 10, columnDefinition = "enum('male', 'female')")
 	private String gender;
-	
-	@Column( length = 100 )
+
+	@Column(length = 100)
 	private String livingArea;
-	
+
 	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinTable(name = "member_roles", joinColumns = @JoinColumn(name = "member_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
-	
+
 	@Builder
-	public Member(String id, String pwd, String nickname, String birthday, String gender, String livingArea, Set<Role> roles) {
+	public Member(String id, String pwd, String nickname, String birthday, String gender, String livingArea,
+			Set<Role> roles) {
 		this.id = id;
 		this.pwd = pwd;
 		this.nickname = nickname;
@@ -63,10 +64,10 @@ public class Member {
 		this.livingArea = livingArea;
 		this.roles = roles;
 	}
-	
-	
+
 	public Member toEntity(Set<Role> roles) {
-		return Member.builder().id(id).pwd(pwd).nickname(nickname).birthday(birthday).gender(gender).livingArea(livingArea).roles(roles).build();
+		return Member.builder().id(id).pwd(pwd).nickname(nickname).birthday(birthday).gender(gender)
+				.livingArea(livingArea).roles(roles).build();
 	}
-	
+
 }

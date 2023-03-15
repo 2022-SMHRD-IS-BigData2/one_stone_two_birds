@@ -15,19 +15,20 @@ import com.smhrd7_hc.entity.Member;
 @Repository
 public interface DrugSearchRecordRepository extends JpaRepository<DrugSearchRecord, DrugSearchRecordPK> {
 
-    @Query("SELECT dsr FROM DrugSearchRecord dsr WHERE dsr.drugSearchRecordPK.id.id = :memberId")
-    List<DrugSearchRecord> findByMemberId(@Param("memberId") String memberId);
+	@Query("SELECT dsr FROM DrugSearchRecord dsr WHERE dsr.drugSearchRecordPK.id.id = :memberId")
+	List<DrugSearchRecord> findByMemberId(@Param("memberId") String memberId);
 
-    @Query("SELECT dsr FROM DrugSearchRecord dsr WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode")
-    DrugSearchRecord findByMemberId(@Param("memberId") String memberId, @Param("drugCode")String drugCode);
-    
-    @Modifying
-    @Query("UPDATE DrugSearchRecord dsr SET dsr.pillLike = :pillLike WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode ")
-    void updatePillLike(@Param("pillLike") Integer pillLike, @Param("memberId") String memberId, @Param("drugCode") String drugCode);
-    
-    @Modifying
-    @Query("UPDATE DrugSearchRecord dsr SET dsr.pillDislike = :pillDislike WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode ")
-    void updatePillDislike(@Param("pillDislike") Integer pillDisLike, @Param("memberId") String memberId, @Param("drugCode") String drugCode);
-    
+	@Query("SELECT dsr FROM DrugSearchRecord dsr WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode")
+	DrugSearchRecord findByMemberId(@Param("memberId") String memberId, @Param("drugCode") String drugCode);
+
+	@Modifying
+	@Query("UPDATE DrugSearchRecord dsr SET dsr.pillLike = :pillLike WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode ")
+	void updatePillLike(@Param("pillLike") Integer pillLike, @Param("memberId") String memberId,
+			@Param("drugCode") String drugCode);
+
+	@Modifying
+	@Query("UPDATE DrugSearchRecord dsr SET dsr.pillDislike = :pillDislike WHERE dsr.drugSearchRecordPK.id.id = :memberId AND dsr.drugSearchRecordPK.drugCode.drugCode = :drugCode ")
+	void updatePillDislike(@Param("pillDislike") Integer pillDisLike, @Param("memberId") String memberId,
+			@Param("drugCode") String drugCode);
 
 }
