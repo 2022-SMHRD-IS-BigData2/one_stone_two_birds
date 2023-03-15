@@ -35,29 +35,35 @@ public class DrugSearchService {
 	}
 	
 	@Transactional
-	public void like(String id, String drugCode) {
+	public String like(String id, String drugCode) {
 		DrugSearchRecord drugList = drugSearchRecordRepository.findByMemberId(id, drugCode);
-		
+		String result = "fail";
 		if(drugList != null) {
 			if(drugList.getPillLike() == 0) { // 좋아요를 누른적 없는 경우
 				drugSearchRecordRepository.updatePillLike(1, id, drugCode);
+				result = "up";
 			}else if(drugList.getPillLike() == 1) { // 이미 좋아요를 누른 경우
 				drugSearchRecordRepository.updatePillLike(0, id, drugCode);
+				result="down";
 			}
 		}
+		return result;
 	}
 	
 	@Transactional
-	public void dislike(String id, String drugCode) {
+	public String dislike(String id, String drugCode) {
 		DrugSearchRecord drugList = drugSearchRecordRepository.findByMemberId(id, drugCode);
-		
+		String result = "fail";
 		if(drugList != null) {
-			if(drugList.getPillDislike() == 0) { // 좋아요를 누른적 없는 경우
+			if(drugList.getPillDislike() == 0) { // 싫어요를 누른적 없는 경우
 				drugSearchRecordRepository.updatePillDislike(1, id, drugCode);
+				result = "up";
 			}else if(drugList.getPillDislike() == 1) { // 이미 좋아요를 누른 경우
 				drugSearchRecordRepository.updatePillDislike(0, id, drugCode);
+				result = "down";
 			}
 		}
+		return result;
 	}
 	
 	@Transactional

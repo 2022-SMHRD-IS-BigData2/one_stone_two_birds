@@ -98,7 +98,37 @@ if(drugData.itemImage != null){
 		},
 		type:"get",
 		success:function(res){
-			
+			if(res == "fail"){
+				swal({
+					content: "text",
+					title:"로그인 해주세요",
+					icon:"error",
+					buttons:{
+						cancel: false,
+						confirm: true
+					}
+				})
+			}else if(res == "up"){
+								swal({
+					content: "text",
+					title:"선호 등록 되었습니다.",
+					icon:"success",
+					buttons:{
+						cancel: false,
+						confirm: true
+					}
+				})
+			}else if(res == "down"){
+				swal({
+					content: "text",
+					title:"선호 취소 되었습니다.",
+					icon:"success",
+					buttons:{
+						cancel: false,
+						confirm: true
+					}
+				})
+			}
 		},
 		error:function(e){
 			
@@ -116,7 +146,37 @@ if(drugData.itemImage != null){
 		},
 		type:"get",
 		success:function(res){
-			
+			if(res == "fail"){
+				swal({
+					content: "text",
+					title:"로그인 해주세요",
+					icon:"error",
+					buttons:{
+						cancel: false,
+						confirm: true
+					}
+				})
+			}else if(res == "up"){
+								swal({
+					content: "text",
+					title:"비선호 등록 되었습니다.",
+					icon:"success",
+					buttons:{
+						cancel: false,
+						confirm: true
+					}
+				})
+			}else if(res == "down"){
+				swal({
+					content: "text",
+					title:"비선호 취소 되었습니다.",
+					icon:"success",
+					buttons:{
+						cancel: false,
+						confirm: true
+					}
+				})
+			}			
 		},
 		error:function(e){
 			
