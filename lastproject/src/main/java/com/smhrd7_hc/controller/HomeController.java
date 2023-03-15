@@ -22,9 +22,9 @@ public class HomeController {
 	}
 
 	@GetMapping("/info")
-	public String info(Model model) {
+	public String info(Model model,String drugCode) {
 		try {
-			model.addAttribute("data",  drugAPIService.drugApi());
+			model.addAttribute("data",  drugAPIService.drugApi(drugCode));
 			
 		} catch (Exception e) {
 		}

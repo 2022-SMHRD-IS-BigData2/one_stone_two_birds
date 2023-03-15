@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -145,19 +145,24 @@
                 <hr class="one" style="width:800px; margin-left: 50px;">
             </div>
             
-            <div class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
-                <div class="image" style="width: fit-content; max-width: 60%;">
-                    <a href="/info"><img src="/img/195900001.jpg" alt="약정보페이지로 이동" id="recent"></a>
-                </div>
-                <div class="text" >
-                    <h2>타이레놀</h2>
-                    <p>제조사명</p>
-                
-                </div>
+            <div  th:each="drugInfo : ${drugList}" class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
+			    <div class="image" style="width: fit-content; max-width: 60%;">
+			        <a href="/info"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" alt="약정보페이지로 이동" id="recent"></a>
+			    </div>
+			    <div class="text">
+			        <h2 th:text="${drugInfo.drugSearchRecordPK.drugCode.drugName}">제품명</h2>
+			        <p th:text="${drugInfo.drugSearchRecordPK.drugCode.makerName}">제조사명</p>
+			    </div>
             </div>
         </div>
-
-
+   </div>
+	<script th:inline="javascript">
+    /*<![CDATA[*/
+    	  var drugList = /*[[${drugList}]]*/ '';
+  		console.log(drugList);
+    /*]]>*/
+	</script>
+	<script type="text/javascript" src="/js/mypage.js"></script>
    
         
 

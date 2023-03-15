@@ -18,14 +18,16 @@ public class DrugSearchService {
 	@Autowired
 	DrugSearchRecordRepository drugSearchRecordRepository;
 	
-	public void like(DrugSearchRecordPK drugSearchRecordPK) {
-		List<DrugSearchRecord> durgList = drugSearchRecordRepository.findByDrugSearchRecordPK(drugSearchRecordPK);
-		
-		System.out.println(durgList);
-	}
-	
-	public void dislike(DrugSearchRecordPK drugSearchRecordPK) {
-		List<DrugSearchRecord> durgList = drugSearchRecordRepository.findByDrugSearchRecordPK(drugSearchRecordPK);
-	}
+//	public void like(DrugSearchRecordPK drugSearchRecordPK) {
+//		List<DrugSearchRecord> drugList = drugSearchRecordRepository.findByMemberId(drugSearchRecordPK);
+//		
+//		if(drugList != null) {
+//			System.out.println(drugList);
+//		}
+//	}
+//	
+//	public void dislike(DrugSearchRecordPK drugSearchRecordPK) {
+//		List<DrugSearchRecord> durgList = drugSearchRecordRepository.findByDrugSearchRecordPK(drugSearchRecordPK);
+//	}
 
 }

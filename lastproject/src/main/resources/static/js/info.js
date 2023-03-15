@@ -93,8 +93,8 @@ if(drugData.itemImage != null){
      $.ajax({
 		url:"/ajax/like",
 		data:{
-			id: "",
-			drugCode: ""
+			id: userName,
+			drugCode: "195900043"
 		},
 		type:"get",
 		success:function(res){

@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DrugAPIService {
 	
-	public StringBuilder drugApi() throws IOException {
+	public StringBuilder drugApi(String drugCode) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=nOpbKEOOTeYPonSnPwFJ%2FbGrXOM4uVVRmGPmE8%2F%2BjvwOY%2BZOvY2P6ZMyelh0%2F4m8VX3granOhVp50XlIT3BdBA%3D%3D"); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("3000", "UTF-8")); /*페이지번호*/
