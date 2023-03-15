@@ -93,8 +93,8 @@ if(drugData.itemImage != null){
      $.ajax({
 		url:"/ajax/like",
 		data:{
-			id: "",
-			drugCode: ""
+			id: userName,
+			drugCode: drugData.itemSeq
 		},
 		type:"get",
 		success:function(res){
@@ -108,5 +108,19 @@ if(drugData.itemImage != null){
 
  $(".dislike").click(function () {
                 // 싫어요 버튼 클릭시 실행될 동작
+     $.ajax({
+		url:"/ajax/dislike",
+		data:{
+			id: userName,
+			drugCode: drugData.itemSeq
+		},
+		type:"get",
+		success:function(res){
+			
+		},
+		error:function(e){
+			
+		}			
+	})
  });
  });

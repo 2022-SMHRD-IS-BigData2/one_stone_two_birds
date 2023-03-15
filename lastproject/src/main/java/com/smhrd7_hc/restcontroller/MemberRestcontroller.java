@@ -14,6 +14,7 @@ import com.smhrd7_hc.entity.DrugSearchRecordPK;
 import com.smhrd7_hc.entity.Member;
 import com.smhrd7_hc.repository.DrugListRepository;
 import com.smhrd7_hc.repository.MemberRepository;
+import com.smhrd7_hc.service.DrugSearchService;
 import com.smhrd7_hc.service.MemberService;
 
 @RestController
@@ -31,6 +32,9 @@ public class MemberRestcontroller {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private DrugSearchService drugSearchService;
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String kakaoMemberSearch(@RequestParam(value = "id") String id) {
@@ -78,12 +82,12 @@ public class MemberRestcontroller {
 	}
 	
 	@RequestMapping(value="/like", method = RequestMethod.GET)
-	public void like(DrugSearchRecordPK drugSearchRecordPK) {
-		
+	public void like(String id, String drugCode) {
+		drugSearchService.like(id, drugCode);
 	}
 	@RequestMapping(value="/dislike", method = RequestMethod.GET)
-	public void dislike(DrugSearchRecordPK drugSearchRecordPK) {
-		
+	public void dislike(String id, String drugCode) {
+		drugSearchService.dislike(id, drugCode);
 	}
 
 }

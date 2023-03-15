@@ -17,5 +17,9 @@ public class DrugList {
 	private String drugCode;
 
 	private String itemImage;
+	
+	private String drugName;
+	
+	private String makerName;
 
 }

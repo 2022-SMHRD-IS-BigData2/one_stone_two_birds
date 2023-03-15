@@ -21,9 +21,10 @@
             <div class="wrap">
                 <nav>
                     <ul>
-                       <li><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
-                    <li><a href="/login"><span>Login</span>로그인</a></li>
-                    <li><a href="/join"><span>Join</span>회원가입</a></li>
+					<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
+                    <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
+                    <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
+                    <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/join"><span>Join</span>회원가입</a></li>
                     </ul>
                 </nav>
             </div>
@@ -120,12 +121,13 @@
             });
         });
     </script>
-	<script th:inline="javascript">
-	    /*<![CDATA[*/
-	    	
-	    	const drugData = JSON.parse(/*[[${data}]]*/).body.items[0]
-	    /*]]>*/
-	</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+        const userName = /*[[${#httpServletRequest.remoteUser}]]*/ '';
+    	
+        const drugData = JSON.parse(/*[[${data}]]*/).body.items[0];
+    /*]]>*/
+</script>
 	
 	<script type="text/javascript" src="/js/info.js" defer></script>
 
