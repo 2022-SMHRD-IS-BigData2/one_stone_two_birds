@@ -81,10 +81,6 @@ public class MyPageController {
 		if(drugList.size() > 0) {
 			
 			for(int i=0; i < drugList.size(); i++) {
-				System.out.println(drugList);
-				System.out.println(drugList.get(i));
-				System.out.println(drugList.get(i).getDrugSearchRecordPK());
-				System.out.println(drugList.get(i).getDrugSearchRecordPK().getDrugCode());
 				drugList.get(i).getDrugSearchRecordPK().getId().setRoles(null);
 			}
 			model.addAttribute("drugList", drugList);

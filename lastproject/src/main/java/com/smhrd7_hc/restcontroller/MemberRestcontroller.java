@@ -82,12 +82,12 @@ public class MemberRestcontroller {
 	}
 	
 	@RequestMapping(value="/like", method = RequestMethod.GET)
-	public void like(DrugSearchRecordPK drugSearchRecordPK) {
-		drugSearchService.like(drugSearchRecordPK);
+	public void like(String id, String drugCode) {
+		drugSearchService.like(id, drugCode);
 	}
 	@RequestMapping(value="/dislike", method = RequestMethod.GET)
-	public void dislike(DrugSearchRecordPK drugSearchRecordPK) {
-		
+	public void dislike(String id, String drugCode) {
+		drugSearchService.dislike(id, drugCode);
 	}
 
 }

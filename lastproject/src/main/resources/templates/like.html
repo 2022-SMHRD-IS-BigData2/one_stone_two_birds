@@ -140,7 +140,7 @@
         <div id="content_wrap">
             <div id="content">
                 <article>
-                    <h2 class="heading" style="margin-left: 30px;"> 좋아요</h2>
+                    <h2 class="heading" style="margin-left: 30px;"> 선호</h2>
                 </article>
                 <hr class="one" style="width:600px; margin-left: 50px;">
             </div>
@@ -148,7 +148,7 @@
             <div th:each="drugInfo : ${drugList}" class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
                 <div th:if="${drugInfo.pillLike==1}">
 	                <div class="image" style="width: fit-content; max-width: 60%;">
-	                    <a href="/info"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" alt="약정보페이지로 이동" id="recent"></a>
+	                    <a th:href="'/info?drugCode='+${drugInfo.drugSearchRecordPK.drugCode.drugCode}"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" alt="약정보페이지로 이동" id="recent"></a>
 	                </div>
 				    <div class="text">
 				        <h2 th:text="${drugInfo.drugSearchRecordPK.drugCode.drugName}">제품명</h2>
@@ -160,7 +160,7 @@
         <div id="content_wrap">
             <div id="content">
                 <article>
-                    <h2 class="heading" style="margin-left: 30px;"> 싫어요</h2>
+                    <h2 class="heading" style="margin-left: 30px;"> 비선호</h2>
                 </article>
                 <hr class="one" style="width:600px; margin-left: 50px;">
             </div>
@@ -168,7 +168,7 @@
             <div th:each="drugInfo : ${drugList}" class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
                 <div th:if="${drugInfo.pillDislike==1}">
 	                <div class="image" style="width: fit-content; max-width: 60%;">
-	                    <a href="/info"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" alt="약정보페이지로 이동" id="recent"></a>
+	                    <a th:href="'/info?drugCode='+${drugInfo.drugSearchRecordPK.drugCode.drugCode}"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" alt="약정보페이지로 이동" id="recent"></a>
 	                </div>
 				    <div class="text">
 				        <h2 th:text="${drugInfo.drugSearchRecordPK.drugCode.drugName}">제품명</h2>
