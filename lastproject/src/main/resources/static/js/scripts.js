@@ -37,6 +37,8 @@ var options = {
 	},
 	yaxis: [
 		{
+			min: 0,
+			max: rangeData,
 			axisTicks: {
 				show: true,
 			},
@@ -60,6 +62,8 @@ var options = {
 			}
 		},
 		{
+			min: 0,
+			max: rangeData,
 			seriesName: 'Income',
 			opposite: true,
 			axisTicks: {
@@ -82,6 +86,8 @@ var options = {
 			},
 		},
 		{
+			min: 0,
+			max: rangeData,
 			seriesName: 'Revenue',
 			opposite: true,
 			axisTicks: {
@@ -103,6 +109,7 @@ var options = {
 				}
 			}
 		},
+
 	],
 	tooltip: {
 		fixed: {
