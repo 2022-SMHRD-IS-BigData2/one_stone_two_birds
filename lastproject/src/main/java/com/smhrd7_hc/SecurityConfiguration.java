@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.smhrd7_hc.enums.MemberAuthority;
 import com.smhrd7_hc.enums.MemberRole;
 
 import lombok.AllArgsConstructor;
@@ -35,8 +34,7 @@ public class SecurityConfiguration {
 				.antMatchers( "/social/**","/ajax/**").permitAll()
 				.antMatchers("/", "/home", "/join", "/test","/info","/edit", "/test").permitAll() // 설정한 리소스의 접근을 인증절차 없이 허용
 				.antMatchers("/mypage/**").hasRole(MemberRole.MEMBER.toString()) // MEMBER 역할을 가지고 있어야 접근 허용
-				.antMatchers("/system/create").access("hasRole('" +  MemberRole.SYSTEM.toString() +  "') and hasAuthority('" + MemberAuthority.OP_CREATE_DATA.toString() + "')") // SYSTEM 역할과 OP_CREATE_DATA 권한을 가지고 있어야 접근 허용
-				.antMatchers("/system/delete").access("hasRole('" +  MemberRole.SYSTEM.toString() +  "') and hasAuthority('" + MemberAuthority.OP_DELETE_DATA.toString() + "')") // SYSTEM 역할과 OP_DELETE_DATA 권한을 가지고 있어야 접근 허용
+				//.antMatchers("/system/create").access("hasRole('" +  MemberRole.SYSTEM.toString() +  "') and hasAuthority('" + MemberAuthority.OP_CREATE_DATA.toString() + "')") // SYSTEM 역할과 OP_CREATE_DATA 권한을 가지고 있어야 접근 허용
 				.anyRequest().authenticated() // 그 외 모든 리소스를 의미하며 인증 필요
 				.and()
 				.csrf()

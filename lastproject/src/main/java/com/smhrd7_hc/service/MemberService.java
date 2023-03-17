@@ -44,8 +44,6 @@ public class MemberService {
 	@Transactional
 	public void memberUpdate(Member member) {
 		Optional<Member> optional = memberRepository.findById(member.getId());
-		System.out.println("이것은: ");
-		System.out.println(optional);
 		if (optional.isPresent()) {
 			Member persistence = optional.get();
 			String rawPassword = member.getPwd();

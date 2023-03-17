@@ -65,7 +65,7 @@ public class DrugSearchService {
 			if (drugList.getPillDislike() == 0) { // 싫어요를 누른적 없는 경우
 				drugSearchRecordRepository.updatePillDislike(1, id, drugCode);
 				result = "up";
-			} else if (drugList.getPillDislike() == 1) { // 이미 좋아요를 누른 경우
+			} else if (drugList.getPillDislike() == 1) { // 이미 싫어요를 누른 경우
 				drugSearchRecordRepository.updatePillDislike(0, id, drugCode);
 				result = "down";
 			}
@@ -89,7 +89,7 @@ public class DrugSearchService {
 
 		drugSearchRecordRepository.save(record);
 	}
-	
+
 	@Transactional
 	public void updateRecord(String id, String drugCode) {
 		drugSearchRecordRepository.updateSearchDate(id, drugCode);

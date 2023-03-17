@@ -1,5 +1,3 @@
-console.log(drugData)
-
 if(drugData.itemName==null){
 	$('#tab-제품명').attr("hidden",true)
 	$('a[class="et-hero-tab"]').eq(0).hide()
