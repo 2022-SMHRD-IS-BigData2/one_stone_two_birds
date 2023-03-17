@@ -107,19 +107,5 @@ public class HomeController {
 		return "info";
 	}
 
-	@GetMapping("/test")
-	public String test(Model model) {
-
-		List<DrugSearchRecord> drugList = drugSearchService.drugFindAll();
-
-		if (drugList.size() > 0) {
-			for (int i = 0; i < drugList.size(); i++) {
-				drugList.get(i).getDrugSearchRecordPK().getId().setRoles(null);
-			}
-			model.addAttribute("data", drugList);
-		}
-
-		return "test";
-	}
 
 }
