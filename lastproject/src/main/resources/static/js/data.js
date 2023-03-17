@@ -24,7 +24,19 @@ keys.sort(function(a, b) {
 
 let maxData = Math.max(...maleData, ...femaleData, ...allData);
 
-let rangeData = maxData + 4;
+let maxPlus = 0;
+
+if (Math.floor(maxData / 10) <= 0) {
+	maxPlus = 2;
+} else {
+	maxPlus = parseInt(Math.floor(maxData / 10));
+}
+
+let rangeData = maxData + maxPlus;
+
+console.log(rangeData)
+console.log(maxData)
+console.log(maxPlus)
 
 for (let i = 0; i < keys.length; i++) {
 	let key = keys[i];

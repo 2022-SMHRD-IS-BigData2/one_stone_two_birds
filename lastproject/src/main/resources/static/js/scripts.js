@@ -39,6 +39,7 @@ var options = {
 		{
 			min: 0,
 			max: rangeData,
+			tickAmount: rangeData,
 			axisTicks: {
 				show: true,
 			},
@@ -64,6 +65,7 @@ var options = {
 		{
 			min: 0,
 			max: rangeData,
+			tickAmount: rangeData,
 			seriesName: 'Income',
 			opposite: true,
 			axisTicks: {
@@ -88,6 +90,7 @@ var options = {
 		{
 			min: 0,
 			max: rangeData,
+			tickAmount: rangeData,
 			seriesName: 'Revenue',
 			opposite: true,
 			axisTicks: {
