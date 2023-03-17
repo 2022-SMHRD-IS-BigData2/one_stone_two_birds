@@ -22,42 +22,6 @@ public class SocialController {
 	@Autowired
 	MemberService ms;
 
-//	@RequestMapping(value = "/kakao", method = {RequestMethod.GET})
-//	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, Model model,
-//			HttpServletRequest request) throws Exception {
-//		System.out.println("#########" + code);
-//
-//		String access_Token = ks.getAccessToken(code);
-//		HashMap<String, Object> userInfo = ks.getUserInfo(access_Token);
-//
-////		Member member = new Member();
-////		member.setId((String)userInfo.get("email"));
-////		member.setNickname((String)userInfo.get("nickname"));
-//
-//		Member member = memberRepository.findOneById((String) userInfo.get("email"));
-//		Member user = new Member();
-//		String result = "signUp";
-//		user.setId((String) userInfo.get("email"));
-//		user.setNickname((String) userInfo.get("nickname"));
-//		user.setPwd(access_Token);
-//
-//		if (member != null) {
-//			result = "home";
-//			System.out.println("###access_Token#### : " + access_Token);
-//			System.out.println("###nickname#### : " + userInfo.get("nickname"));
-//			System.out.println("###email#### : " + userInfo.get("email"));
-//			System.out.println("###birthday### : " + userInfo.get("birthday"));
-//
-//			request.setAttribute("username", user.getId());
-//			request.setAttribute("userpassword", access_Token);
-//		} else {
-//
-//			model.addAttribute("userInfo", user);
-//		}
-//
-//		return result;
-//	}
-
 	@RequestMapping(value = "/login", method = { RequestMethod.POST })
 	public String kakaoLogin(@RequestParam(value = "username", required = false) String id,
 			@RequestParam(value = "password", required = false) String password,
