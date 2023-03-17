@@ -1,12 +1,13 @@
 body{
-	font-family: 'Pretendard-Regular';
-	background:#DCE2F0;
+    font-family: 'Pretendard-Regular';
+    background:#DCE2F0;
 }
+
 .contents {
     margin-right: auto;
     margin-left: auto;
     width: 400px;
-	
+
 }
 
 .contents p {
@@ -16,6 +17,7 @@ body{
 }
 
 .image {
+	margin-top:-74px;
     margin-right: calc(50%-50vw);
     margin-left: calc(50%-50vw);
     margin-bottom: 10px;
@@ -33,18 +35,20 @@ body{
 }
 
 /* 본문내용 */
+
+
 #main_section>article.main_article {
     margin-right: 12px;
     margin-left: 50px;
     margin-bottom: 10px;
     padding: 20px;
-    background-color: white;
+
+    /* border: 1px solid whitesmoke; */
     color: #50586C;
 }
 
-
 #content {
-    width: 960px;
+    width: 400px;
     margin: 0 auto;
 
     overflow: hidden;
@@ -100,13 +104,12 @@ a {
 
     display: flex;
     flex-direction: row;
- position: absolute; 
+    position: absolute; 
     bottom: 0;
-    width: 58%;
+    width: 50%;
     height: 70px;
     box-shadow: 20px 0 20px 0px rgba(0, 0, 0, 0.1);
-    background: #fff;
-
+    background: #FCF6F5;
     &--top {
         position: fixed;
         top: 0;
@@ -156,25 +159,3 @@ a {
         font-size: 1rem;
     }
 }
-
-
-.rating {
-        display: flex;
-        align-items: center;
-    }
-
-.rating button {
-        background-color: transparent;
-        border: none;
-        margin-right: 10px;
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-.rating .like i {
-        color: BLUE;
-    }
-
-.rating .dislike i {
-        color: red;
-    }

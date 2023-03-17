@@ -9,20 +9,20 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Pretendard-Regular';
-   
+   	background:#DCE2F0;
 }
 
 #header {
-    position: sticky;
+    position: fixed;
+    margin-bottom: 10px;
+    background-color: #50586C;
     top: 0px;
-
     left: 0px;
     right: 0;
     width: 100%;
-    z-index: 1;
-    height: 80px;
-   
-    color: black;
+    z-index: 5;
+    height: 9vh;
+  	color: #DCE2F0;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@ body{
 }
 
 .wrap {
-    display: flex;
+/*     display: flex; */
     justify-content: flex-end;
     align-items: center;
     width: 500px;
@@ -52,7 +52,7 @@ li:not(:last-child) {
 li a {
     display: flex;
     flex-direction: column;
-    color: #111;
+    color: #DCE2F0;
     font-size: 27px;
     font-weight: 700;
     text-align: center;
@@ -61,9 +61,11 @@ li a {
 }
 
 li a span {
-    color: #5b8f8f;
+    color: #333;
     font-size: 15px;
 }
+
+
 /*  로그인 전체 박스 중앙정렬 */
 .container{
     /* background-color: aqua; */

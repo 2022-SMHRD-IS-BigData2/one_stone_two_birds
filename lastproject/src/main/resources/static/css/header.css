@@ -14,7 +14,7 @@ body {
     width: 100%;
     z-index: 5;
     height: 9vh;
-    color: #50586C;
+  	color: #DCE2F0;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
@@ -22,12 +22,12 @@ body {
     /* background-color: aqua; */
 }
 
-.wrap {
-/*     display: flex; */
-    justify-content: flex-end;
+/* .wrap {
+  display: flex;
+  justify-content: flex-end;
     align-items: center;
     width: 500px;
-}
+} */
 
 ul {
     display: flex;
