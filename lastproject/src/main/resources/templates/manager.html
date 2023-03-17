@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Dashboard</title>
+
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/header.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src='https://www.gstatic.com/charts/testing-loader.js'></script>
+
+</head>
+<style>
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+  #top5-chart {
+    width: 100%;
+    height: 300px;
+  }
+</style>
+
+<body>
+  <div class="grid-container">
+
+    <!-- Header -->
+    <div id="header">
+      <a href="/home"> <img src="./images/logo.png" alt="" style="width: 150px"></a>
+      <div class="wrap">
+        <nav>
+          <ul>
+             <li><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
+                    <li><a href="/login"><span>Login</span>로그인</a></li>
+                    <li><a href="/join"><span>Join</span>회원가입</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Sidebar -->
+
+    <!-- End Sidebar -->
+
+    <!-- Main -->
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold"> </p>
+      </div>
+
+
+      <div class="charts">
+        <div class="charts-card">
+          <p class="chart-title">성별과 나이대에 따른 회원 가입자수 </p>
+          <div id="combo"></div>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">일일 방문자수 </p>
+          <div id="area-chart"></div>
+        </div>
+      </div>
+        <div class="charts2">
+          <div class="charts-card">
+            <p class="chart-title">약 조회 TOP 10 (일일) </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>순위</th>
+                  <th>제품명</th>
+                  <th>제조사</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>
+        
+      
+          <div class="charts-card">
+            <p class="chart-title">약 조회 TOP 10 (주간) </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>순위</th>
+                  <th>제품명</th>
+                  <th>제조사</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        
+   
+          <div class="charts-card">
+            <p class="chart-title">약 조회 TOP 10 (월간) </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>순위</th>
+                  <th>제품명</th>
+                  <th>제조사</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>타이레놀</td>
+                  <td>종근당</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="charts-card" style="width:680px">
+            <p class="chart-title">거주지에 따른 회원수 </p>
+            <div id="live-chart"></div>
+          </div>
+        </div>
+  
+   
+    </main>
+    <!-- End Main -->
+  </div>
+  <div id="regions_div" style="width: 700px; height: 10px;"></div>
+  <!-- Scripts -->
+  <!-- ApexCharts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    let dataTest = [250, 370]
+  </script>
+  <script src="js/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    google.charts.load('49', {
+  'packages': ['geochart'], 'xlanguage': 'in'
+});
+
+google.charts.setOnLoadCallback(drawRegionsMap);
+
+function drawRegionsMap() {
+
+  const data = google.visualization.arrayToDataTable([
+    ['Province', 'value'],  //
+    ['KR-JK', 100],
+  ]);
+  
+  const options = {
+    geochartVersion: 11,
+    regioncoderVersion: 1,
+    'region': 'KR',
+    'resolution': 'provinces'
+  };
+
+  var chart = new google.visualization.GeoChart(
+    document.getElementById('regions_div'));
+
+  chart.draw(data, options);
+}
+  </script>
+
+</body>
+
+</html>
