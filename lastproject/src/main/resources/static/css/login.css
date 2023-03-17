@@ -13,6 +13,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Pretendard-Regular';
+  background:#DCE2F0;
 }
 
 .box {
@@ -23,20 +24,23 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: var(--padding);
-  background-color: white;
+  background:#DCE2F0;
   border-radius: 7px;
 }
 
 .box input {
 	padding: 15px;
-	font-size: 1.2em;
-
+	font-size: large;
+	text-align: center;
+  	font-family: 'Pretendard-Regular';
+  	width: -webkit-fill-available;
 }
 
 .box button {
   padding: 15px;
-  font-size: 1.2em;
+  font-size: large;
   text-align: center;
+  font-family: 'Pretendard-Regular';
 }
 
 .box input {
@@ -47,66 +51,73 @@ body {
   background-color: #EEE;
   color: black;
   border-radius: 4px;
-  font-weight: bold;
+  text-align: center;
+  font-family: 'Pretendard-Regular';
 }
  .img_logo {
     height: 60px;
     display:block; margin:auto;
 } 
 
+.p{
+	font-size:small;
+	text-align:center;
+}
 .p1 {
   text-align: center;
   line-height: 50px;
 }
-
 #header {
-  position: sticky;
-  top: 0px;
-  left: 0px;
-  right: 0;
-  width: 100%;
-  z-index: 1;
-  height: 80px;
- 
-  color: black;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: aqua; */
+    position: fixed;
+    margin-bottom: 10px;
+    background-color: #50586C;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    width: 100%;
+    z-index: 5;
+    height: 9vh;
+  	color: #DCE2F0;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
 }
 
 .wrap {
-  display: flex;
-   justify-content: flex-end;
-  align-items: center;
-  width: 500px;
+/*     display: flex; */
+    justify-content: flex-end;
+    align-items: center;
+    width: 500px;
 }
 
 ul {
-  display: flex;
-  justify-content: flex-end;
-  flex: 1;
-  list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    list-style: none;
 
 }
 
 li:not(:last-child) {
-  margin-right: 50px;
+    margin-right: 50px;
 }
 
 li a {
-  display: flex;
-  flex-direction: column;
-  color: #111;
-  font-size: 27px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    color: #DCE2F0;
+    font-size: 27px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.6;
 }
 
 li a span {
-  color: #5b8f8f;
-  font-size: 15px;
+    color: #333;
+    font-size: 15px;
 }
+
+

@@ -2,9 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #e6e8ed;
+    background:#DCE2F0;
     color: #666666;
-    font-family: 'TheJamsil5Bold';
+ 	font-family: 'Pretendard-Regular';
   }
   
   .material-icons-outlined {
