@@ -12,29 +12,31 @@
     <title>mypage</title>
 </head>
 
-
+<style>
+	@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+	}</style>
+	
 <style>
     *{
         margin: 0; padding:0;}
-        body{font-family:"Helvetica", sans-serif}
+        /* body{font-family:"Helvetica", sans-serif} */
         a{text-decoration: none;}
         li{list-style: none;}
 
-
-   
-</style>
-
-<style>
+	body{
+	background:#DCE2F0;}
+	
     #wrap {
         overflow: hidden;     
     }
 
-    #wrap>#main_lnb {
-        float: left;
-        width: 200px;
-    }
 
     #wrap> #content_wrap {
+    	margin-top:84px;
         float: left;
          width: 100%; 
         margin-right: -200px; 
@@ -49,18 +51,20 @@
         display: flex;
         flex-direction: row;
         position: absolute;
-        top: 150px;
+        top: 87.203px;
     }
     #wrap>#main_lnb{
-        width: 180px;
-        height: 700px;
+   		float: left;
+        width: 175px;
+        height: 882px;
         position: relative;
-        background: #5b8f8f;
+        background: white;
         display: flex;
         flex-direction: column;
     }
 
     #main_lnb>ul{
+    	
         margin-top: -218px;
         display:flex;
         flex-direction: column;
@@ -73,16 +77,15 @@
         height: 0px;
         line-height: 100px;
         padding-left: 15px;
-        font-size: large;
         text-align: left;
-        color: white;
+        color: black;
         font-weight: bold;
-        font-size: 25px;
-        text-shadow: 4px 2px 2px gray; 
+        font-size: 23px;
+        text-shadow: 4px 2px 2px white; 
     }
 
     #content {
-        background: white;
+        background:#DCE2F0;
     }
 
     article {
@@ -131,7 +134,7 @@
     <div id="wrap">
         <nav id="main_lnb">
             <ul>
-                <li><a href="/myPage/mypage">검색한 약</a></li>
+                <li><a href="/myPage/mypage">최근기록</a></li>
                 <li><a href="/myPage/like">약관리</a></li>
                 <li><a href="/myPage/edit">개인정보관리</a></li>
             </ul>
@@ -140,12 +143,12 @@
         <div id="content_wrap">
             <div id="content">
                 <article>
-                    <h2 class="heading" style="margin-left: 30px;"> 검색한 약</h2>
+                    <h2 class="heading" style="margin-left: 30px;"> 최근기록</h2>
                 </article>
                 <hr class="one" style="width:800px; margin-left: 50px;">
             </div>
             
-            <div  th:each="drugInfo : ${drugList}" class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
+            <div  th:each="drugInfo : ${drugList}" class="wrap" style="align-items:center; width:600px; justify-content: space-evenly; margin-left:47px">
 			    <div class="image" style="width: fit-content; max-width: 60%;">
 			        <a th:href="'/info?drugCode='+${drugInfo.drugSearchRecordPK.drugCode.drugCode}"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" th:alt="${drugInfo.drugSearchRecordPK.drugCode.drugName}" id="recent"
 			        th:value="${drugInfo.drugSearchRecordPK.drugCode.drugCode} + ',' + ${drugInfo.drugSearchRecordPK.id.id}"></a>

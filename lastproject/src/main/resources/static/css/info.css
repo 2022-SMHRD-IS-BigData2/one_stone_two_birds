@@ -1,8 +1,11 @@
+body{
+	font-family: 'Pretendard-Regular';
+}
 .contents {
     margin-right: auto;
     margin-left: auto;
     width: 400px;
-
+	
 }
 
 .contents p {

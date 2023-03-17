@@ -12,19 +12,19 @@
     <title>likehate</title>
 </head>
 
-
-<style>
-    *{
-        margin: 0; padding:0;}
-        body{font-family:"Helvetica", sans-serif}
-        a{text-decoration: none;}
-        li{list-style: none;}
-
-
-   
+	<style>
+	@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+	}
 </style>
-
-<style>
+	<style>
+    *{margin: 0; padding:0;}
+    a{text-decoration: none;}
+    li{list-style: none;}
+   
     #wrap {
         overflow: hidden;     
     }
@@ -35,6 +35,7 @@
     }
 
     #wrap> #content_wrap {
+    	margin-top:84px;
         float: left;
         width: 53%; 
         margin-right: -150px; 
@@ -49,13 +50,13 @@
         display: flex;
         flex-direction: row;
         position: absolute;
-        top: 150px;
+        top: 87.203px;
     }
     #wrap>#main_lnb{
-        width: 180px;
-        height: 700px;
+        width: 175px;
+        height: 882px;
         position: relative;
-        background: #5b8f8f;
+        background: #f5f5f5;
         display: flex;
         flex-direction: column;
     }
@@ -73,12 +74,11 @@
         height: 0px;
         line-height: 100px;
         padding-left: 15px;
-        font-size: large;
         text-align: left;
-        color: white;
+        color: black;
         font-weight: bold;
-        font-size: 25px;
-        text-shadow: 4px 2px 2px gray; 
+        font-size: 23px;
+        text-shadow: 4px 2px 2px white; 
     }
 
     #content {
@@ -131,7 +131,7 @@
     <div id="wrap">
         <nav id="main_lnb">
             <ul>
-                <li><a href="/myPage/mypage">검색한 약</a></li>
+                <li><a href="/myPage/mypage">최근기록</a></li>
                 <li><a href="/myPage/like">약관리</a></li>
                 <li><a href="/myPage/edit">개인정보관리</a></li>
             </ul>
@@ -147,10 +147,10 @@
             
             <div th:each="drugInfo : ${drugList}" class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
                 <div th:if="${drugInfo.pillLike==1}">
-	                <div class="image" style="width: fit-content; max-width: 60%;">
+	                <div class="image" style="width: fit-content; max-width: 60%; margin-left:47px;">
 	                    <a th:href="'/info?drugCode='+${drugInfo.drugSearchRecordPK.drugCode.drugCode}"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" alt="약정보페이지로 이동" id="recent"></a>
 	                </div>
-				    <div class="text">
+				    <div class="text" style="margin-left:50px">
 				        <h2 th:text="${drugInfo.drugSearchRecordPK.drugCode.drugName}">제품명</h2>
 				        <p th:text="${drugInfo.drugSearchRecordPK.drugCode.makerName}">제조사명</p>
 				    </div>
@@ -167,7 +167,7 @@
             
             <div th:each="drugInfo : ${drugList}" class="wrap" style="display:flex; align-items:center; width:600px; justify-content: space-evenly;">
                 <div th:if="${drugInfo.pillDislike==1}">
-	                <div class="image" style="width: fit-content; max-width: 60%;">
+	                <div class="image" style="width: fit-content; max-width: 60%; margin-left:47px;">
 	                    <a th:href="'/info?drugCode='+${drugInfo.drugSearchRecordPK.drugCode.drugCode}"><img th:src="@{${drugInfo.drugSearchRecordPK.drugCode.itemImage}}" alt="약정보페이지로 이동" id="recent"></a>
 	                </div>
 				    <div class="text">
