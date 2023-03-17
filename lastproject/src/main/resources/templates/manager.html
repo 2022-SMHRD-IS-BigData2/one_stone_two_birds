@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -14,8 +14,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/header.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src='https://www.gstatic.com/charts/testing-loader.js'></script>
 
@@ -40,13 +40,14 @@
 
     <!-- Header -->
     <div id="header">
-      <a href="/home"> <img src="./images/logo.png" alt="" style="width: 150px"></a>
+      <a href="/home"> <img src="/img/logo.png" alt="" style="width: 150px"></a>
       <div class="wrap">
         <nav>
           <ul>
-             <li><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
-                    <li><a href="/login"><span>Login</span>로그인</a></li>
-                    <li><a href="/join"><span>Join</span>회원가입</a></li>
+			<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
+			<li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
+			<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
+			<li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/join"><span>Join</span>회원가입</a></li>
           </ul>
         </nav>
       </div>
@@ -86,58 +87,13 @@
                   <th>제조사</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-              </tbody>
+              <tbody th:with="today=${drugSearchCountData.today}">
+				  <tr th:each="item, index : ${today}">
+				    <td th:text="${index.count}">순위</td>
+				    <td th:text="${item.drugName}">약이름</td>
+				    <td th:text="${item.makerName}">제조사이름</td>
+				  </tr>
+			</tbody>
             </table>
             
           </div>
@@ -145,7 +101,7 @@
       
           <div class="charts-card">
             <p class="chart-title">약 조회 TOP 10 (주간) </p>
-            <table>
+            <table >
               <thead>
                 <tr>
                   <th>순위</th>
@@ -153,58 +109,13 @@
                   <th>제조사</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-              </tbody>
+              <tbody th:with="week=${drugSearchCountData.week}">
+				  <tr th:each="item, index : ${week}">
+				    <td th:text="${index.count}">순위</td>
+				    <td th:text="${item.drugName}">약이름</td>
+				    <td th:text="${item.makerName}">제조사이름</td>
+				  </tr>
+			</tbody>
             </table>
           </div>
         
@@ -219,58 +130,13 @@
                   <th>제조사</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                </tr>
-              </tbody>
+              <tbody th:with="month=${drugSearchCountData.month}">
+				  <tr th:each="item, index : ${month}">
+				    <td th:text="${index.count}">순위</td>
+				    <td th:text="${item.drugName}">약이름</td>
+				    <td th:text="${item.makerName}">제조사이름</td>
+				  </tr>
+			</tbody>
             </table>
           </div>
           <div class="charts-card" style="width:680px">
@@ -292,39 +158,47 @@
   <script>
     let dataTest = [250, 370]
   </script>
-  <script src="js/scripts.js"></script>
+	<script th:inline="javascript">
+    /*<![CDATA[*/
+    	  var ageGenderCountData = JSON.parse(/*[[${ageGenderCountData}]]*/);
+    	  var loginCountData = JSON.parse(/*[[${loginCountData}]]*/);
+    	  var areaCountData = JSON.parse(/*[[${areaCountData}]]*/);
+    /*]]>*/
+	</script>
+	<script src="/js/data.js"></script>
+  <script src="/js/scripts.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-
-    google.charts.load('49', {
-  'packages': ['geochart'], 'xlanguage': 'in'
-});
-
-google.charts.setOnLoadCallback(drawRegionsMap);
-
-function drawRegionsMap() {
-
-  const data = google.visualization.arrayToDataTable([
-    ['Province', 'value'],  //
-    ['KR-JK', 100],
-  ]);
-  
-  const options = {
-    geochartVersion: 11,
-    regioncoderVersion: 1,
-    'region': 'KR',
-    'resolution': 'provinces'
-  };
-
-  var chart = new google.visualization.GeoChart(
-    document.getElementById('regions_div'));
-
-  chart.draw(data, options);
-}
+		const myChart = new Chart(
+			document.getElementById('myChart'),
+			config
+		);
+		
+		google.charts.load('49', {
+			'packages': ['geochart'], 'xlanguage': 'in'
+		});
+		
+		google.charts.setOnLoadCallback(drawRegionsMap);
+		
+		function drawRegionsMap() {
+		
+			const data = google.visualization.arrayToDataTable([
+				['Province', 'value'],  //
+				['KR-JK', 100],
+			]);
+			  
+			const options = {
+				geochartVersion: 11,
+				regioncoderVersion: 1,
+				'region': 'KR',
+				'resolution': 'provinces'
+			};
+			
+			var chart = new google.visualization.GeoChart(
+				document.getElementById('regions_div'));
+				
+			chart.draw(data, options);
+		}
   </script>
 
 </body>

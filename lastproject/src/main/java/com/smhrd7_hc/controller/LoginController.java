@@ -1,5 +1,6 @@
 package com.smhrd7_hc.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class LoginController {
 
+	@Autowired
 	private final MemberService memberService;
 
 	@GetMapping("/login")
