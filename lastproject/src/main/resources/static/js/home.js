@@ -218,34 +218,31 @@ function uploadFile() {
 		return;
 	}
 
-	if (confirm("등록 하시겠습니까?")) {
-		// 등록할 파일 리스트를 formData로 데이터 입력
-		var form = $('#uploadForm');
-		var formData = new FormData(form);
-		for (var i = 0; i < uploadFileList.length; i++) {
-			formData.append('files', fileList[uploadFileList[i]]);
-		}
+if (confirm("등록 하시겠습니까?")) {
+  // 등록할 파일 리스트를 formData로 데이터 입력
+  var form = $('#uploadForm')[0]; // 첫 번째 폼 엘리먼트 선택
+  var formData = new FormData(form);
+  for (var i = 0; i < uploadFileList.length; i++) {
+    formData.append('image', fileList[uploadFileList[i]]);
+  }
 
-		$.ajax({
-			url: "업로드 경로",
-			data: formData,
-			type: 'POST',
-			enctype: 'multipart/form-data',
-			processData: false,
-			contentType: false,
-			dataType: 'json',
-			cache: false,
-			success: function(result) {
-				if (result.data.length > 0) {
-					alert("성공");
-					location.reload();
-				} else {
-					alert("실패");
-					location.reload();
-				}
-			}
-		});
+  $.ajax({
+    url: "http://172.30.1.36:5500/AIFlask",
+    data: formData,
+    type: 'POST',
+    enctype: 'multipart/form-data',
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    cache: false,
+    success: function(result) {
+		console.log(result)
+    },
+	error:function(e){
+		
 	}
+  });
+}
 }
 
 
