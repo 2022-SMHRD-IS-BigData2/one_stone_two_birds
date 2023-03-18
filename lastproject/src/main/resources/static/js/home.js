@@ -235,8 +235,13 @@ if (confirm("등록 하시겠습니까?")) {
     contentType: false,
     dataType: 'json',
     cache: false,
-    success: function(result) {
-		console.log(result)
+    success: function(res) {
+		console.log(res)
+		if(res.result == "true"){
+			window.location.href = "/info?drugCode="+res.drugCode;
+		}else{
+			alert("판별실패")
+		}
     },
 	error:function(e){
 		
