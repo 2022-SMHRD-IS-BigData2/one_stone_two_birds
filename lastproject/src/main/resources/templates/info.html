@@ -28,7 +28,8 @@
             <div class="wrap">
                 <nav>
                     <ul>
-					<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
+					<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).SYSTEM)"><a href="/manager/"><span>managerpage</span>관리페이지</a></li>
+                    <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
                     <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
                     <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
                     <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/join"><span>Join</span>회원가입</a></li>
@@ -39,8 +40,7 @@
         <div style="margin-top: 130px;">
         <div class="container" style="height: 310px;">
             <div class="contents">
-                <div class="image"><img name="pillImage" src="/img/195900001.jpg" alt="검색된 약사진"> </div>
-                <p></p>
+                <div class="image"><img name="pillImage" th:src="${data.itemImage}" alt="검색된 약사진"> </div>
             </div>
         </div>
         
@@ -53,15 +53,15 @@
         <!-- tab기능구현 -->
         <div class="et-hero-tabs" style="position: sticky; top: 100px; margin-bottom: 20px; ">
             <div class="et-hero-tabs-container">
-                <a class="et-hero-tab" href="#tab-제품명">제품명</a>
-                <a class="et-hero-tab" href="#tab-업체명">업체명</a>
-                <a class="et-hero-tab" href="#tab-효능">효능</a>
-                <a class="et-hero-tab" href="#tab-사용법">사용법</a>
-                <a class="et-hero-tab" href="#tab-복용전주의">복용전 주의</a>
-                <a class="et-hero-tab" href="#tab-주의사항">주의사항</a>
-                <a class="et-hero-tab" href="#tab-상호작용">상호작용</a>
-                <a class="et-hero-tab" href="#tab-부작용">부작용</a>
-                <a class="et-hero-tab" href="#tab-보관법">보관법</a>
+                <a th:if="${data.itemName != null}" class="et-hero-tab" href="#tab-제품명">제품명</a>
+                <a th:if="${data.entpName != null}" class="et-hero-tab" href="#tab-업체명">업체명</a>
+                <a th:if="${data.efcyQesitm != null}" class="et-hero-tab" href="#tab-효능">효능</a>
+                <a th:if="${data.useMethodQesitm != null}" class="et-hero-tab" href="#tab-사용법">사용법</a>
+                <a th:if="${#vars.data.containsKey('atpnWarnQesitm')}" class="et-hero-tab" href="#tab-복용전주의">복용전 주의</a>
+                <a th:if="${data.atpnQesitm != null}" class="et-hero-tab" href="#tab-주의사항">주의사항</a>
+                <a th:if="${data.intrcQesitm != null}" class="et-hero-tab" href="#tab-상호작용">상호작용</a>
+                <a th:if="${data.seQesitm != null}" class="et-hero-tab" href="#tab-부작용">부작용</a>
+                <a th:if="${data.depositMethodQesitm != null}" class="et-hero-tab" href="#tab-보관법">보관법</a>
 
 
                 <span class="et-hero-tab-slider"></span>
@@ -75,33 +75,41 @@
 
 
             <section id="main_section" style="padding-left:450px; padding-right:450px;">
-                <article class="main_article" id="tab-제품명">
+                <article th:if="${data.itemName != null}" class="main_article" id="tab-제품명">
                     <h1 name="제품명">제품명</h1>
+                    <p th:utext="${data.itemName}"></p>
                 </article>
-                <article class="main_article" id="tab-업체명">
+                <article th:if="${data.entpName != null}" class="main_article" id="tab-업체명">
                     <h1 name="업체명">업체명</h1>
+                    <p th:utext="${data.entpName}"></p>
                 </article>
-                <article class="main_article" id="tab-효능">
+                <article th:if="${data.efcyQesitm != null}" class="main_article" id="tab-효능">
                     <h1 name="효능">효능</h1>
+                    <p th:utext="${data.efcyQesitm}" name="효능"></p>
                 </article>
-                <article class="main_article" id="tab-사용법">
+                <article th:if="${data.useMethodQesitm != null}" class="main_article" id="tab-사용법">
                     <h1 name="사용법">사용법</h1>
+                    <p th:utext="${data.useMethodQesitm}"></p>
                 </article>
-                <article class="main_article" id="tab-복용전주의">
-                    <h1 name="복용전주의">복용전 주의</h1>
-                </article>
-                <article class="main_article" id="tab-주의사항">
+				<article th:if="${#vars.data.containsKey('atpnWarnQesitm')}" class="main_article" id="tab-복용전주의">
+				    <h1 name="복용전주의">복용전 주의</h1>
+				    <p th:utext="${data.atpnWarnQesitm}"></p>
+				</article>
+                <article th:if="${data.atpnQesitm != null}" class="main_article" id="tab-주의사항">
                     <h1 name="주의사항">주의사항</h1>
-      
+                    <p th:utext="${data.atpnQesitm}"></p>
                 </article>
-                <article class="main_article" id="tab-상호작용">
+                <article th:if="${data.intrcQesitm != null}" class="main_article" id="tab-상호작용">
                     <h1 name="상호작용">상호작용</h1>
+                    <p th:utext="${data.intrcQesitm}"></p>
                 </article>
-                <article class="main_article" id="tab-부작용">
+                <article th:if="${data.seQesitm != null}" class="main_article" id="tab-부작용">
                     <h1 name="부작용">부작용</h1>
+                    <p th:utext="${data.seQesitm}"></p>
                 </article>
-                <article class="main_article" id="tab-보관법">
+                <article th:if="${data.depositMethodQesitm != null}" class="main_article" id="tab-보관법">
                     <h1 name="보관법">보관법 </h1>
+                    <p th:utext="${data.depositMethodQesitm}"></p>
                 </article>
             </section>
         </div>
@@ -131,8 +139,7 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
         const userName = /*[[${#httpServletRequest.remoteUser}]]*/ '';
-    
-        const drugData = JSON.parse(/*[[${data}]]*/).body.items[0];
+        const itemSeq =  /*[[${data.itemSeq}]]*/ '';
     /*]]>*/
 </script>
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

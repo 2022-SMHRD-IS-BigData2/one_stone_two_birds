@@ -221,7 +221,6 @@ public class ManagerService {
 	    result.put("week", weekDataSorted);
 	    result.put("month", monthDataSorted);
 
-	    String jsonResult = gson.toJson(result);
 	    return result;
 	}
 

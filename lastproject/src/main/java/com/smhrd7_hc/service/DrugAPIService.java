@@ -6,8 +6,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import lombok.RequiredArgsConstructor;
 
@@ -51,5 +60,35 @@ public class DrugAPIService {
 		conn.disconnect();
 
 		return sb;
+	}
+	
+	public HashMap<String, Object> getDrugInfo(String jsonString) {
+	    Gson gson = new Gson();
+	    JsonObject obj = gson.fromJson(jsonString, JsonObject.class);
+	    JsonObject body = obj.getAsJsonObject("body");
+	    JsonArray items = body.getAsJsonArray("items");
+	    List<HashMap<String, Object>> itemList = new ArrayList<>();
+
+	    for (int i = 0; i < items.size(); i++) {
+	        JsonObject item = items.get(i).getAsJsonObject();
+	        HashMap<String, Object> itemMap = new HashMap<>();
+
+	        for (Map.Entry<String, JsonElement> entry : item.entrySet()) {
+	            String key = entry.getKey();
+	            JsonElement value = entry.getValue();
+
+	            if (value.isJsonPrimitive()) {
+	                itemMap.put(key, value.getAsString());
+	            } else if (value.isJsonArray()) {
+	                itemMap.put(key, value.getAsJsonArray());
+	            } else if (value.isJsonObject()) {
+	                itemMap.put(key, value.getAsJsonObject());
+	            }
+	        }
+
+	        itemList.add(itemMap);
+	    }
+
+	    return itemList.get(0);
 	}
 }
