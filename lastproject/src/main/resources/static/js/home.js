@@ -227,7 +227,7 @@ if (confirm("등록 하시겠습니까?")) {
   }
 
   $.ajax({
-    url: "http://172.30.1.36:5500/AIFlask",
+    url: "http://localhost:5500/AIFlask",
     data: formData,
     type: 'POST',
     enctype: 'multipart/form-data',
