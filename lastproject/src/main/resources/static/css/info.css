@@ -79,13 +79,6 @@ a {
         margin: 0;
         letter-spacing: 1rem;
     }
-    h3 {
-        font-size: 1rem;
-        letter-spacing: 0.3rem;
-        opacity: 0.6;
-    }
-
-
 
 }
 
@@ -147,9 +140,6 @@ a {
             font-size: 3rem;
         }
 
-        h3 {
-            font-size: 1rem;
-        }
     }
 
     .et-hero-tab {

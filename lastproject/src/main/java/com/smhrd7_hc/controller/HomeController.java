@@ -1,9 +1,9 @@
 package com.smhrd7_hc.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import com.google.gson.JsonObject;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,6 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.smhrd7_hc.entity.DrugSearchRecord;
 import com.smhrd7_hc.service.DrugAPIService;
 import com.smhrd7_hc.service.DrugSearchService;
@@ -51,13 +56,14 @@ public class HomeController {
 
 				if (drugInfo == null) {
 					drugSearchService.inserRecord(id, drugCode);
-				}else if (drugInfo != null) {
+				} else if (drugInfo != null) {
 					drugSearchService.updateRecord(id, drugCode);
 				}
-				
-				
+
 				try {
-					model.addAttribute("data", drugAPIService.drugApi(drugCode, drugName));
+					String drugString = drugAPIService.drugApi(drugCode, drugName).toString();
+					HashMap<String, Object> result = drugAPIService.getDrugInfo(drugString);
+					model.addAttribute("data", result);
 				} catch (Exception e) {
 					// 예외 처리
 				}
@@ -65,18 +71,19 @@ public class HomeController {
 			} else if (drugName != null) {
 				drugCode = "";
 				try {
-					StringBuilder result = drugAPIService.drugApi(drugCode, drugName);
+					String drugString = drugAPIService.drugApi(drugCode, drugName).toString();
 
-					drugCode = result.toString().split("itemSeq\":\"")[1].split("\"")[0];
+					drugCode = drugString.split("itemSeq\":\"")[1].split("\"")[0];
 
 					DrugSearchRecord drugInfo = drugSearchService.drugSearchRecord(id, drugCode);
 
 					if (drugInfo == null) {
 						drugSearchService.inserRecord(id, drugCode);
-					}else if (drugInfo != null) {
+					} else if (drugInfo != null) {
 						drugSearchService.updateRecord(id, drugCode);
 					}
-
+					
+					HashMap<String, Object> result = drugAPIService.getDrugInfo(drugString);
 					model.addAttribute("data", result);
 
 				} catch (Exception e) {
@@ -89,7 +96,9 @@ public class HomeController {
 			if (drugCode != null) {
 				drugName = "";
 				try {
-					model.addAttribute("data", drugAPIService.drugApi(drugCode, drugName));
+					String drugString = drugAPIService.drugApi(drugCode, drugName).toString();
+					HashMap<String, Object> result = drugAPIService.getDrugInfo(drugString);
+					model.addAttribute("data", result);
 				} catch (Exception e) {
 					// 예외 처리
 				}
@@ -97,15 +106,18 @@ public class HomeController {
 			} else if (drugName != null) {
 				drugCode = "";
 				try {
-					model.addAttribute("data", drugAPIService.drugApi(drugCode, drugName));
+					String drugString = drugAPIService.drugApi(drugCode, drugName).toString();
+					HashMap<String, Object> result = drugAPIService.getDrugInfo(drugString);
+					model.addAttribute("data", result);
+					model.addAttribute("testData", drugString);
 				} catch (Exception e) {
 					// 예외 처리
 				}
+				
 			}
 		}
 
 		return "info";
 	}
-
 
 }

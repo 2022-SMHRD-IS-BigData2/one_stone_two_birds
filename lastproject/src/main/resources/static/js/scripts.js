@@ -135,7 +135,7 @@ chart.render();
 
 var areaChartOptions = {
 	series: [{
-		name: 'Purchase Orders',
+		name: '일일 로그인 수',
 		data: loginData // 일일 방문자수 데이터
 	}],
 	chart: {
@@ -157,7 +157,9 @@ var areaChartOptions = {
 		size: 0
 	},
 	yaxis: [
-		{
+		{	
+			min:0,
+			max:10,
 			opposite: true,
 			title: {
 				text: 'Sales Orders',
