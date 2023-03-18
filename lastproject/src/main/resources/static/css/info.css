@@ -162,9 +162,9 @@ a {
     }
 
 .rating .like i {
-        color: BLUE;
+        color: #1DE2CE;
     }
 
 .rating .dislike i {
-        color: red;
+        color: #E555C8;
     }

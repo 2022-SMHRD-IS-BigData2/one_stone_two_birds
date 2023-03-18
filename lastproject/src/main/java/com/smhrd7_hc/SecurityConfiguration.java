@@ -45,7 +45,6 @@ public class SecurityConfiguration {
 				.ignoringAntMatchers("/info")
 				.ignoringAntMatchers("/manager/**")
 				.ignoringAntMatchers("/logout")
-				.ignoringAntMatchers("http://172.30.1.69:5500/predict")
 				.and()
 			.formLogin()
 				.permitAll()
