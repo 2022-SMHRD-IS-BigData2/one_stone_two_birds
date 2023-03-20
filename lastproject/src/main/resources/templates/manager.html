@@ -95,9 +95,9 @@
               </thead>
               <tbody th:with="today=${drugSearchCountData.today}">
 				  <tr th:each="item, index : ${today}">
-				    <td th:text="${index.count}">순위</td>
-				    <td th:text="${item.drugName}">약이름</td>
-				    <td th:text="${item.makerName}">제조사이름</td>
+				    <td th:if="${index.count <= 10}" th:text="${index.count}">순위</td>
+				    <td th:if="${index.count <= 10}" th:text="${item.drugName}">약이름</td>
+				    <td th:if="${index.count <= 10}" th:text="${item.makerName}">제조사이름</td>
 				  </tr>
 			</tbody>
             </table>
@@ -117,9 +117,9 @@
               </thead>
               <tbody th:with="week=${drugSearchCountData.week}">
 				  <tr th:each="item, index : ${week}">
-				    <td th:text="${index.count}">순위</td>
-				    <td th:text="${item.drugName}">약이름</td>
-				    <td th:text="${item.makerName}">제조사이름</td>
+				    <td th:if="${index.count <= 10}" th:text="${index.count}">순위</td>
+				    <td th:if="${index.count <= 10}" th:text="${item.drugName}">약이름</td>
+				    <td th:if="${index.count <= 10}" th:text="${item.makerName}">제조사이름</td>
 				  </tr>
 			</tbody>
             </table>
@@ -138,9 +138,9 @@
               </thead>
               <tbody th:with="month=${drugSearchCountData.month}">
 				  <tr th:each="item, index : ${month}">
-				    <td th:text="${index.count}">순위</td>
-				    <td th:text="${item.drugName}">약이름</td>
-				    <td th:text="${item.makerName}">제조사이름</td>
+				    <td th:if="${index.count <= 10}" th:text="${index.count}">순위</td>
+				    <td th:if="${index.count <= 10}" th:text="${item.drugName}">약이름</td>
+				    <td th:if="${index.count <= 10}" th:text="${item.makerName}">제조사이름</td>
 				  </tr>
 			</tbody>
             </table>
