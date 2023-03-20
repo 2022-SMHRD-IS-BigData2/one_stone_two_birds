@@ -21,13 +21,18 @@
 
 </head>
 <style>
-
 @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+	}
+/* @font-face {
     font-family: 'TheJamsil5Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
-}
+} */
 
   #top5-chart {
     width: 100%;
@@ -44,7 +49,7 @@
       <div class="wrap">
         <nav>
           <ul>
-			<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).SYSTEM)"><a href="/manager/"><span>managerpage</span>관리페이지</a></li>
+			<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).SYSTEM)"><a href="/manager/"><span>Managerpage</span>관리페이지</a></li>
                     <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
                     <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
                     <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
