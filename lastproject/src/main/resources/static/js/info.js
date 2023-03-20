@@ -54,7 +54,7 @@
 		url:"/ajax/dislike",
 		data:{
 			id: userName,
-			drugCode: drugData.itemSeq
+			drugCode: itemSeq
 		},
 		type:"get",
 		success:function(res){
