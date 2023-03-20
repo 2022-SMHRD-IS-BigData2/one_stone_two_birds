@@ -244,7 +244,7 @@ if (confirm("등록 하시겠습니까?")) {
       }
     },
    error:function(e){
-      
+      swal("에러","알약을 찾을 수 없습니다.","warning")
    }
   });
 }
