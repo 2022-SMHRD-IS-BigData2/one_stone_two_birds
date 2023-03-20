@@ -21,5 +21,7 @@ public class DrugList {
 	private String drugName;
 
 	private String makerName;
+	
+	private String printFront;
 
 }
