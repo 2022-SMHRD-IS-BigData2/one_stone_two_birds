@@ -225,7 +225,7 @@ if (confirm("등록 하시겠습니까?")) {
   for (var i = 0; i < uploadFileList.length; i++) {
     formData.append('image', fileList[uploadFileList[i]]);
   }
-
+	console.log(formData)
   $.ajax({
     url: "http://localhost:5500/AIFlask",
     data: formData,
