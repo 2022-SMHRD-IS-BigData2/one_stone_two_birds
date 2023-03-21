@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.smhrd7_hc.entity.DrugAccuracyList;
+import com.smhrd7_hc.repository.DrugAccuracyListRepository;
 import com.smhrd7_hc.service.ManagerService;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +22,9 @@ public class ManagerController {
 
 	@Autowired
 	private final ManagerService managerService;
+	
+	@Autowired
+	private final DrugAccuracyListRepository drugAccuracyListRepository; 
 	
 	@GetMapping("/")
 	public String managerPage(Model model) {
@@ -39,8 +44,18 @@ public class ManagerController {
 	}
 	
 	// DrugAccuracyList로 이동
-	@GetMapping("/drugAccuracyList")
+	@GetMapping("/data")
 	public String drugAccuracyList(Model model) {
-		return "drugAccuracyList";
+		
+		List<DrugAccuracyList> drugAccuracyLists = drugAccuracyListRepository.findAll();
+		
+		for(DrugAccuracyList list : drugAccuracyLists) {
+			list.getId().setRoles(null);
+		}
+		
+		model.addAttribute("drugAccuracyLists", drugAccuracyLists);
+		
+		return "data";
 	}
+	
 }

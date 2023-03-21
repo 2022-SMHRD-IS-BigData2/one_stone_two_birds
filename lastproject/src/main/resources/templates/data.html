@@ -89,76 +89,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>타이레놀</td>
-                  <td>종근당</td>
-                  <td>2015040</td>
-                  <td>92.21%</td>
+                <tr th:each="list : ${drugAccuracyLists}">
+                  <td th:text="${list.idx}">번호</td>
+                  <td th:text="${list.id.id}">아이디</td>
+                  <td th:text="${#temporals.format(T(java.time.LocalDateTime).ofInstant(list.indate.toInstant(), T(java.time.ZoneId).systemDefault()), 'yyyy-MM-dd HH:mm:ss')}">조회날짜</td>
+                  <td th:text="${list.drugCode}">예측값</td>
+                  <td th:text="${list.accuracy}+'%'">예측확률</td>
                 </tr>
               </tbody>
             </table>

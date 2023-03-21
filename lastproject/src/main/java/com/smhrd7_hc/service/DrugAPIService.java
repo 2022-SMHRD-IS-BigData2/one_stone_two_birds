@@ -62,33 +62,57 @@ public class DrugAPIService {
 		return sb;
 	}
 	
+	// json타입의 문자열을 입력하면 객체 형태로 반환해주는 함수
 	public HashMap<String, Object> getDrugInfo(String jsonString) {
+	    // Gson 객체 생성
 	    Gson gson = new Gson();
+
+	    // jsonString을 JsonObject로 변환
 	    JsonObject obj = gson.fromJson(jsonString, JsonObject.class);
+
+	    // JsonObject에서 "body" key 값을 가진 object를 가져와서 "items" key 값을 가진 array를 가져옴
 	    JsonObject body = obj.getAsJsonObject("body");
 	    JsonArray items = body.getAsJsonArray("items");
+
+	    // 변환된 item들을 저장할 ArrayList 생성
 	    List<HashMap<String, Object>> itemList = new ArrayList<>();
 
+	    // items 배열에 있는 모든 item을 반복하면서, 각 item을 HashMap<String, Object> 형태로 변환
 	    for (int i = 0; i < items.size(); i++) {
+	        // 각 item을 JsonObject로 변환
 	        JsonObject item = items.get(i).getAsJsonObject();
+
+	        // 변환된 item을 저장할 HashMap 생성
 	        HashMap<String, Object> itemMap = new HashMap<>();
 
+	        // item의 모든 key-value 쌍을 반복하면서, 각 key-value 쌍을 HashMap<String, Object> 형태로 저장
 	        for (Map.Entry<String, JsonElement> entry : item.entrySet()) {
+	            // key 값을 가져옴
 	            String key = entry.getKey();
+
+	            // value 값을 가져옴
 	            JsonElement value = entry.getValue();
 
+	            // value 값이 JsonPrimitive인 경우에는 String 형태로 변환하여 HashMap에 저장
 	            if (value.isJsonPrimitive()) {
 	                itemMap.put(key, value.getAsString());
-	            } else if (value.isJsonArray()) {
+	            }
+	            // value 값이 JsonArray인 경우에는 JsonArray 형태로 변환하여 HashMap에 저장
+	            else if (value.isJsonArray()) {
 	                itemMap.put(key, value.getAsJsonArray());
-	            } else if (value.isJsonObject()) {
+	            }
+	            // value 값이 JsonObject인 경우에는 JsonObject 형태로 변환하여 HashMap에 저장
+	            else if (value.isJsonObject()) {
 	                itemMap.put(key, value.getAsJsonObject());
 	            }
 	        }
 
+	        // 변환된 item을 itemList에 추가
 	        itemList.add(itemMap);
 	    }
 
+	    // itemList에서 첫 번째 item을 반환함
 	    return itemList.get(0);
 	}
+
 }
