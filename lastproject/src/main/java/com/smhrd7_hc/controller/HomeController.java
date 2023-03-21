@@ -41,11 +41,17 @@ public class HomeController {
 
 	@GetMapping("/info")
 	public String info(Model model, @RequestParam(value = "drugCode", required = false) String drugCode,
-			@RequestParam(value = "drugName", required = false) String drugName) {
+			@RequestParam(value = "drugName", required = false) String drugName,
+			@RequestParam(value = "yoloResult", required = false) String yoloResult) {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-
+		
+		if(yoloResult != null) {
+	        Gson gson = new Gson();
+	        YoloResultDto yoloResultDto = gson.fromJson(yoloResult, YoloResultDto.class);
+	        String detectedDrugCode = yoloResultDto.getDrugCode();
+		}
 		// 로그인 했을 경우 알약 코드로 검색이력 추가함
 		if (id != null && !id.equals("anonymousUser")) {
 			// 사진을 올려 검색한 경우
