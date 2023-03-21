@@ -44,20 +44,22 @@
   <div class="grid-container">
 
     <!-- Header -->
-    <div id="header">
+   <div id="header">
       <a href="/home"> <img src="/img/logo.png" alt="" style="width: 150px"></a>
       <div class="wrap">
         <nav>
           <ul>
-			<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).SYSTEM)"><a href="/manager/"><span>Managerpage</span>관리페이지</a></li>
-                    <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
-                    <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
-                    <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
-                    <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/join"><span>Join</span>회원가입</a></li>
+			<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).SYSTEM)"><a href="/manager/"><span>Managerpage</span>대시보드</a></li>
+			<li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).SYSTEM)"><a href="/data/"><span>Managerpage</span>분석데이터</a></li>
+            <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/myPage/mypage"><span>Mypage</span>마이페이지</a></li>
+            <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/login"><span>Login</span>로그인</a></li>
+            <li sec:authorize="hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/logout"><span>Logout</span>로그아웃</a></li>
+            <li sec:authorize="!hasRole(T(com.smhrd7_hc.enums.MemberRole).MEMBER)"><a href="/join"><span>Join</span>회원가입</a></li>
           </ul>
         </nav>
       </div>
-    </div>
+    </div> 
+
     <!-- End Header -->
 
     <!-- Sidebar -->
@@ -95,9 +97,9 @@
               </thead>
               <tbody th:with="today=${drugSearchCountData.today}">
 				  <tr th:each="item, index : ${today}">
-				    <td th:if="${index.count <= 10}" th:text="${index.count}">순위</td>
-				    <td th:if="${index.count <= 10}" th:text="${item.drugName}">약이름</td>
-				    <td th:if="${index.count <= 10}" th:text="${item.makerName}">제조사이름</td>
+				    <td th:if="${index.count <= 5}" th:text="${index.count}">순위</td>
+				    <td th:if="${index.count <= 5}" th:text="${item.drugName}">약이름</td>
+				    <td th:if="${index.count <= 5}" th:text="${item.makerName}">제조사이름</td>
 				  </tr>
 			</tbody>
             </table>
@@ -117,9 +119,9 @@
               </thead>
               <tbody th:with="week=${drugSearchCountData.week}">
 				  <tr th:each="item, index : ${week}">
-				    <td th:if="${index.count <= 10}" th:text="${index.count}">순위</td>
-				    <td th:if="${index.count <= 10}" th:text="${item.drugName}">약이름</td>
-				    <td th:if="${index.count <= 10}" th:text="${item.makerName}">제조사이름</td>
+				    <td th:if="${index.count <= 5}" th:text="${index.count}">순위</td>
+				    <td th:if="${index.count <= 5}" th:text="${item.drugName}">약이름</td>
+				    <td th:if="${index.count <= 5}" th:text="${item.makerName}">제조사이름</td>
 				  </tr>
 			</tbody>
             </table>
@@ -138,9 +140,9 @@
               </thead>
               <tbody th:with="month=${drugSearchCountData.month}">
 				  <tr th:each="item, index : ${month}">
-				    <td th:if="${index.count <= 10}" th:text="${index.count}">순위</td>
-				    <td th:if="${index.count <= 10}" th:text="${item.drugName}">약이름</td>
-				    <td th:if="${index.count <= 10}" th:text="${item.makerName}">제조사이름</td>
+				    <td th:if="${index.count <= 5}" th:text="${index.count}">순위</td>
+				    <td th:if="${index.count <= 5}" th:text="${item.drugName}">약이름</td>
+				    <td th:if="${index.count <= 5}" th:text="${item.makerName}">제조사이름</td>
 				  </tr>
 			</tbody>
             </table>

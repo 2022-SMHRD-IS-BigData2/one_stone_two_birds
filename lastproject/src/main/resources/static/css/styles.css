@@ -213,8 +213,8 @@
   
   .charts-card {
     background-color: #ffffff;
-    margin-bottom: 20px;
-    padding: 25px;
+    margin-bottom: 8px;
+    padding: 3px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     border: 1px solid #d2d2d3;
