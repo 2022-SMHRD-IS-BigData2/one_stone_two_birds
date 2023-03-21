@@ -37,4 +37,10 @@ public class ManagerController {
 		
 		return "manager";
 	}
+	
+	// DrugAccuracyList로 이동
+	@GetMapping("/drugAccuracyList")
+	public String drugAccuracyList(Model model) {
+		return "drugAccuracyList";
+	}
 }

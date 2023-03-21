@@ -18,7 +18,11 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.smhrd7_hc.entity.DrugAccuracyList;
 import com.smhrd7_hc.entity.DrugSearchRecord;
+import com.smhrd7_hc.entity.Member;
+import com.smhrd7_hc.repository.DrugAccuracyListRepository;
+import com.smhrd7_hc.repository.MemberRepository;
 import com.smhrd7_hc.service.DrugAPIService;
 import com.smhrd7_hc.service.DrugSearchService;
 
@@ -33,6 +37,12 @@ public class HomeController {
 
 	@Autowired
 	private DrugSearchService drugSearchService;
+	
+	@Autowired
+	private MemberRepository memberRepository;
+	
+	@Autowired
+	private DrugAccuracyListRepository drugAccuracyListRepository;
 
 	@GetMapping({ "/", "/home" })
 	public String home(Model model) {
@@ -46,14 +56,25 @@ public class HomeController {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
+		DrugAccuracyList drugAccuracyList = new DrugAccuracyList();
 		
 		if(yoloResult != null) {
 	        Gson gson = new Gson();
-	        YoloResultDto yoloResultDto = gson.fromJson(yoloResult, YoloResultDto.class);
-	        String detectedDrugCode = yoloResultDto.getDrugCode();
+	        drugAccuracyList = gson.fromJson(yoloResult, DrugAccuracyList.class);
+	        drugCode = drugAccuracyList.getDrugCode();
+	        String accuracy = drugAccuracyList.getAccuracy();
+	        System.out.println(drugCode);
+	        System.out.println(accuracy);
 		}
 		// 로그인 했을 경우 알약 코드로 검색이력 추가함
 		if (id != null && !id.equals("anonymousUser")) {
+			
+			// 검색했을 때 검색이력을 추가한다.
+	        Member member = new Member();
+	        member = memberRepository.findOneById(id);
+	        drugAccuracyList.setId(member);
+	        drugAccuracyListRepository.save(drugAccuracyList);
+	        
 			// 사진을 올려 검색한 경우
 			if (drugCode != null) {
 				DrugSearchRecord drugInfo = drugSearchService.drugSearchRecord(id, drugCode);

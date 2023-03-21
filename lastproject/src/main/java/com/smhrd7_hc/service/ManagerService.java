@@ -20,9 +20,11 @@ import com.google.gson.Gson;
 import com.smhrd7_hc.entity.DrugSearchRecord;
 import com.smhrd7_hc.entity.LoginRecord;
 import com.smhrd7_hc.entity.Member;
+import com.smhrd7_hc.repository.DrugAccuracyListRepository;
 import com.smhrd7_hc.repository.DrugSearchRecordRepository;
 import com.smhrd7_hc.repository.LoginRecordRepository;
 import com.smhrd7_hc.repository.MemberRepository;
+import com.smhrd7_hc.entity.DrugAccuracyList;
 
 import lombok.RequiredArgsConstructor;
 
@@ -38,6 +40,9 @@ public class ManagerService {
 	
 	@Autowired
 	private final DrugSearchRecordRepository drugSearchRecordRepository;
+	
+	@Autowired
+	private final DrugAccuracyListRepository drugAccuracyListRepository;
 
 	private Gson gson = new Gson();
 
@@ -119,10 +124,8 @@ public class ManagerService {
 				String livingArea = member.getLivingArea();
 
 				areaCountMap.put(livingArea, areaCountMap.getOrDefault(livingArea, 0) + 1);
-
 			}
 		}
-
 		String json = gson.toJson(areaCountMap);
 
 		return json;
@@ -222,6 +225,16 @@ public class ManagerService {
 	    result.put("month", monthDataSorted);
 
 	    return result;
+	}
+	
+	// 여태 검색된 약의 정보로 리스트화
+	public void DrugAccuracyList() {
+		List<DrugAccuracyList> drugAccuracyAllList = drugAccuracyListRepository.findAll();
+		
+		for(DrugAccuracyList drugAccuracyList : drugAccuracyAllList) {
+			drugAccuracyList.getId().setRoles(null);
+		}
+		
 	}
 
 }
