@@ -91,12 +91,12 @@
               </thead>
               
               <tbody>
-                <tr >
-                  <td>아이디</td>
-                  <td>성별</td>
-                  <td>생일</td>
-                  <td>거주지</td>
-                  <td>가입날짜</td>
+                <tr th:each="member : ${memberList}">
+                  <td th:text="${member.id}">아이디</td>
+                  <td th:text="${member.gender}">성별</td>
+                  <td th:text="${member.birthday}">생일</td>
+                  <td th:text="${member.livingArea}">거주지</td>
+                  <td th:text="${#temporals.format(T(java.time.LocalDateTime).ofInstant(member.indate.toInstant(), T(java.time.ZoneId).systemDefault()), 'yyyy-MM-dd HH:mm:ss')}">가입날짜</td>
                 </tr>
               </tbody>
             </table>

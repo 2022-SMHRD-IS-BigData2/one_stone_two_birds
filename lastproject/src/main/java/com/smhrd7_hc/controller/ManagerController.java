@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.smhrd7_hc.entity.DrugAccuracyList;
+import com.smhrd7_hc.entity.Member;
 import com.smhrd7_hc.repository.DrugAccuracyListRepository;
+import com.smhrd7_hc.repository.MemberRepository;
 import com.smhrd7_hc.service.ManagerService;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +24,9 @@ public class ManagerController {
 
 	@Autowired
 	private final ManagerService managerService;
+	
+	@Autowired
+	private final MemberRepository memberRepository;
 	
 	@Autowired
 	private final DrugAccuracyListRepository drugAccuracyListRepository; 
@@ -53,7 +58,10 @@ public class ManagerController {
 			list.getId().setRoles(null);
 		}
 		
+		List<Member> memberList = memberRepository.findAll();
+		
 		model.addAttribute("drugAccuracyLists", drugAccuracyLists);
+		model.addAttribute("memberList", memberList);
 		
 		return "data";
 	}
