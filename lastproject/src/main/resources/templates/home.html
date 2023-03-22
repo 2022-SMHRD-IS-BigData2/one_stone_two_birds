@@ -51,18 +51,16 @@
         <!--First section-->
         <!-- 파일선택 -->
 
-        <div class="upload-btn-wrapper" style="top:280px; left:-41px">
+<!--         <div class="upload-btn-wrapper" style="top:280px; left:-41px">
             <input type="file" id="input_file" multiple="multiple" style="height: 100%; " />
             <button class="upload-btn" style="margin-left: 742px; margin-top: 0px;">파일선택</button>
-
             <form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post">
-        </div>
- 
-        <div id="dropZone" style="margin-top: 256px; margin-left: 700px; width: 450px; height: 200px; border-style: solid; border-color: black; ">
-            <div id="fileDragDesc"> 파일을 드래그 해주세요.
 
+        </div>
+ 		<div>
+        <div id="dropZone" style="margin-top: 256px; margin-left: 700px; width: 450px; height: 200px; border-style: solid; border-color:  white; ">
+            <div id="fileDragDesc"> 검색할 약 사진을 끌어서 추가할 수 있습니다.
             </div>
-            
         </div>
 
 	    <div>
@@ -70,17 +68,63 @@
                 <tbody id="fileTableTbody">
 
                 </tbody>
+       	
             </table>
+            
         </div>
+        	<button class="upload-btn" type="submit"  onclick="uploadFile(); return false;">파일업로드</button>
         <input type="button" onclick="uploadFile(); return false;" class="btn bg_01" value="파일 업로드" style="margin-left: 56%; margin-top:6px">
+        </div>
         </form>
+
+ -->
+		<div style="margin-top:108px">
+		 	<div class="upload-btn-wrapper" style="margin-left:682px">
+		            <input type="file" id="input_file" multiple="multiple" style="height: 100%;" />
+		            <button class="upload-btn">파일선택</button>
+		        </div>
+		        <br />
+		        <br><br><br><br>
+		    
+		        <form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post" style="text-align:-webkit-center;">
+		    
+		            <div id="dropZone" style="width: 500px; height: 300px; border-style: solid; border-color: white;">
+		                <div id="fileDragDesc" style="color:white;">검색할 약 사진을 끌어서 추가할 수 있습니다. </div>
+		            
+		                
+		                <table id="fileListTable" width="100%" border="0px">
+		                    <tbody id="fileTableTbody">
+		    
+		                    </tbody>
+		                </table>
+		            </div>
+		    
+		        </form>
+		        
+		        
+		      <button class="upload-btn" type="submit"  onclick="uploadFile(); return false;" style="margin-left: 1063px">파일업로드</button>
+		
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
         <!-- 알약직접검색 -->
         <form action="/info" method="get">
         <div class="box">
-            <input type="text" name="drugName" placeholder="알약을 검색하세요">
+            <input type="text" name="drugName" placeholder="알약 이름으로 검색하세요">
             <button class="upload-btn" type="submit">검색</button>
         </div>
         </form>
